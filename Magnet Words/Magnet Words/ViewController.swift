@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = UIColor(red: 0, green: 222, blue: 255, alpha: 255)
         
         placeNewWords()
     }
