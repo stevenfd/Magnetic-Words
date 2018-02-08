@@ -14,7 +14,7 @@ let WORDS_ON_SCREEN = 20
 let TOP_BUFFER:CGFloat = 32
 let SIDE_BUFFER:CGFloat = 16
 //Buffer between words and rows
-let WORD_BUFFER:CGFloat = 8
+let WORD_BUFFER:CGFloat = 10
 
 //TODO: Load this in through a file?
 let words = ["could","cloud","bot","bit","ask","a","geek","flame","file","ed","create","like","lap","is","ing","I","her","drive","get","soft","screen","protect","online","meme","to","they","that","tech","space","source","y","write","while"]
@@ -39,10 +39,11 @@ class ViewController: UIViewController {
         for _ in 1...WORDS_ON_SCREEN {
             let word = UILabel()
             word.backgroundColor = UIColor.white
+            word.font = UIFont(name: word.font.fontName, size: 22)
             //Get a random word from the list of words
             //TODO: Prevent duplicates? Maybe not as big a deal with lots of words?
             let randNum = Int(arc4random_uniform(UInt32(words.count)))
-            word.text = words[randNum]
+            word.text = " " + words[randNum] + " " //Spaces are to make the label bigger TODO: better way to do this?
             word.sizeToFit()
             
             //Now lets do the work of placing these in rows
