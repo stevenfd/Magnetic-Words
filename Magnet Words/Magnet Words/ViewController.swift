@@ -61,8 +61,17 @@ class ViewController: UIViewController {
             view.addSubview(word)
             
             //Finally make them draggable
-            
+            word.isUserInteractionEnabled = true
+            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragWord))
+            word.addGestureRecognizer(panGesture)
         }
+    }
+    
+    //Function to move the label where the user is dragging
+    @objc func dragWord(panGesture:UIPanGestureRecognizer) {
+        let word = panGesture.view as! UILabel
+        let position = panGesture.location(in: view)
+        word.center = position
     }
 }
 
