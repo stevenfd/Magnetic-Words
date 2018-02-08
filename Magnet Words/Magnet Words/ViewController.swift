@@ -11,9 +11,10 @@ import UIKit
 let WORDS_ON_SCREEN = 20
 
 //Buffer on the side of the application
-let SIDE_BUFFER = 16
+let TOP_BUFFER:CGFloat = 32
+let SIDE_BUFFER:CGFloat = 16
 //Buffer between words and rows
-let WORD_BUFFER = 8
+let WORD_BUFFER:CGFloat = 8
 
 //TODO: Load this in through a file?
 let words = ["could","cloud","bot","bit","ask","a","geek","flame","file","ed","create","like","lap","is","ing","I","her","drive","get","soft","screen","protect","online","meme","to","they","that","tech","space","source","y","write","while"]
@@ -25,14 +26,17 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor.blue
         
+        placeNewWords()
     }
 
     //Function to place new words on the screen
     func placeNewWords() {
-        var row = 0
-        var furthestLabel = 0
+        let furthestScreenDistance = view.frame.size.width - (SIDE_BUFFER * 2)
         
-        for index in 1...WORDS_ON_SCREEN {
+        var row:CGFloat = 0
+        var furthestLabelX:CGFloat = 0
+        
+        for _ in 1...WORDS_ON_SCREEN {
             let word = UILabel()
             word.backgroundColor = UIColor.white
             //Get a random word from the list of words
@@ -42,6 +46,21 @@ class ViewController: UIViewController {
             word.sizeToFit()
             
             //Now lets do the work of placing these in rows
+            //Check to see if this label would go off the screen
+            if(furthestLabelX + WORD_BUFFER + word.frame.width > furthestScreenDistance) {
+                row += 1
+                furthestLabelX = 0
+            }
+            
+            //Now that we're on the right row, place the label
+            let x = SIDE_BUFFER + WORD_BUFFER + furthestLabelX + (word.frame.width / 2)
+            furthestLabelX += word.frame.width + WORD_BUFFER //Update the furthest X
+            let y = TOP_BUFFER + row * (WORD_BUFFER + word.frame.height) + (word.frame.height / 2)
+            
+            word.center = CGPoint(x: x, y: y)
+            view.addSubview(word)
+            
+            //Finally make them draggable
             
         }
     }
