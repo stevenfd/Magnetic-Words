@@ -24,8 +24,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //baf0ff
-        view.backgroundColor = UIColor(red: 0, green: 186, blue: 240, alpha: 255)
+        //Same color as launch screen - baf0ff
+        view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
         
         placeNewWords()
     }
