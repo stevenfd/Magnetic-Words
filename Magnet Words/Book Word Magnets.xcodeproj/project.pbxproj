@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F3ABC47202CE38800A9AFED /* Magnet Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magnet Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F3ABC47202CE38800A9AFED /* Book Word Magnets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Word Magnets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3ABC4A202CE38800A9AFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F3ABC4C202CE38800A9AFED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F3ABC4F202CE38800A9AFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		3F3ABC48202CE38800A9AFED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F3ABC47202CE38800A9AFED /* Magnet Words.app */,
+				3F3ABC47202CE38800A9AFED /* Book Word Magnets.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3F3ABC46202CE38800A9AFED /* Magnet Words */ = {
+		3F3ABC46202CE38800A9AFED /* Book Word Magnets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F3ABC59202CE38800A9AFED /* Build configuration list for PBXNativeTarget "Magnet Words" */;
+			buildConfigurationList = 3F3ABC59202CE38800A9AFED /* Build configuration list for PBXNativeTarget "Book Word Magnets" */;
 			buildPhases = (
 				3F3ABC43202CE38800A9AFED /* Sources */,
 				3F3ABC44202CE38800A9AFED /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = "Magnet Words";
+			name = "Book Word Magnets";
 			productName = "Magnet Words";
-			productReference = 3F3ABC47202CE38800A9AFED /* Magnet Words.app */;
+			productReference = 3F3ABC47202CE38800A9AFED /* Book Word Magnets.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3F3ABC42202CE38800A9AFED /* Build configuration list for PBXProject "Magnet Words" */;
+			buildConfigurationList = 3F3ABC42202CE38800A9AFED /* Build configuration list for PBXProject "Book Word Magnets" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3F3ABC46202CE38800A9AFED /* Magnet Words */,
+				3F3ABC46202CE38800A9AFED /* Book Word Magnets */,
 			);
 		};
 /* End PBXProject section */
@@ -303,7 +303,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3F3ABC42202CE38800A9AFED /* Build configuration list for PBXProject "Magnet Words" */ = {
+		3F3ABC42202CE38800A9AFED /* Build configuration list for PBXProject "Book Word Magnets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F3ABC57202CE38800A9AFED /* Debug */,
@@ -312,7 +312,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F3ABC59202CE38800A9AFED /* Build configuration list for PBXNativeTarget "Magnet Words" */ = {
+		3F3ABC59202CE38800A9AFED /* Build configuration list for PBXNativeTarget "Book Word Magnets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F3ABC5A202CE38800A9AFED /* Debug */,
