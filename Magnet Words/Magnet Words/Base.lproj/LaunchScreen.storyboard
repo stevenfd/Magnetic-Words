@@ -6,15 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Palatino.ttc">
-            <string>Palatino-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -24,32 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Magnets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoi-fy-vQ2">
-                                <rect key="frame" x="53.5" y="100" width="268" height="45"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steven Domitrz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LN1-uF-F5x">
-                                <rect key="frame" x="128" y="202" width="118" height="21"/>
+                                <rect key="frame" x="128" y="630" width="118" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="original" translatesAutoresizingMaskIntoConstraints="NO" id="d1D-KS-YOV">
+                                <rect key="frame" x="-325" y="193" width="1024" height="300"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.87146845978901855" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.72941176470588232" green="0.94117647058823528" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qoi-fy-vQ2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CJz-Uy-BQy"/>
+                            <constraint firstItem="d1D-KS-YOV" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="0NP-jb-ECU"/>
+                            <constraint firstItem="d1D-KS-YOV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="173" id="5GK-0p-Ur9"/>
                             <constraint firstItem="LN1-uF-F5x" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Efa-IP-bc5"/>
-                            <constraint firstItem="LN1-uF-F5x" firstAttribute="top" secondItem="qoi-fy-vQ2" secondAttribute="bottom" constant="57" id="JsI-lw-5E8"/>
-                            <constraint firstItem="qoi-fy-vQ2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="10/2" id="KDz-hF-xEC"/>
+                            <constraint firstItem="LN1-uF-F5x" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LFq-gn-ala"/>
+                            <constraint firstItem="d1D-KS-YOV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Xqr-Nx-Q4Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LN1-uF-F5x" secondAttribute="bottom" constant="16" id="nZ1-3R-UGF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d1D-KS-YOV" secondAttribute="bottom" constant="174" id="wnU-8m-bIa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="original" width="1024" height="1024"/>
+    </resources>
 </document>
