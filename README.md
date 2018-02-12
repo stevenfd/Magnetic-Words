@@ -14,8 +14,16 @@ A highly customizable word magnets app for iOS, with different book themes.
 * Words can be dragged around the screen
 * Basic start screen and App icon created
 
-### Design Sketches
+### Design Mockups
 
+Mockup of screen with word selection down, showing main icons.
+![Main Screen - Words Down](Media/Mockups/markup_main_wordsdown_small.png)
+
+Mockup of screen with word selection up.
+![Main Screen - Words Up](Media/Mockups/markup_main_wordsup_small.png)
+
+Mockup of launch screen
+![Launch Screen](Media/Mockups/LaunchMockup_small.png)
 
 ### Screenshots
 
