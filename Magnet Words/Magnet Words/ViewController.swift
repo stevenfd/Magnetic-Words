@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         for _ in 1...WORDS_ON_SCREEN {
             let word = UILabel()
             word.backgroundColor = UIColor.white
-            word.font = UIFont(name: word.font.fontName, size: 22)
+            word.font = UIFont(name: word.font.fontName, size: 25)
             //Get a random word from the list of words
             //TODO: Prevent duplicates? Maybe not as big a deal with lots of words?
             let randNum = Int(arc4random_uniform(UInt32(words.count)))
