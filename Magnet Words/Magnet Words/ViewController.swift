@@ -21,17 +21,22 @@ let words = ["could","cloud","bot","bit","ask","a","geek","flame","file","ed","c
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var toolBar: UIToolbar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Same color as launch screen - baf0ff
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
         
-        placeNewWords()
+        //Figure out the starting height for the words
+        let wordHeight = view.frame.size.height - BOTTOM_BUFFER - toolBar.frame.size.height
+        
+        placeNewWords(startingHeight: wordHeight)
     }
 
     //Function to place new words on the screen
-    func placeNewWords() {
+    func placeNewWords(startingHeight: CGFloat) {
         let furthestScreenDistanceX = view.frame.size.width - (SIDE_BUFFER * 2)
         
         var row:CGFloat = 1
@@ -62,7 +67,7 @@ class ViewController: UIViewController {
             //Now that we're on the right row, place the label
             let x = SIDE_BUFFER + WORD_BUFFER + furthestLabelX + (word.frame.width / 2)
             furthestLabelX += word.frame.width + WORD_BUFFER //Update the furthest X
-            let y = view.frame.size.height - BOTTOM_BUFFER - (row - 1) * (WORD_BUFFER + word.frame.height) - (word.frame.height / 2)
+            let y = startingHeight - (row - 1) * (WORD_BUFFER + word.frame.height) - (word.frame.height / 2)
             
             word.center = CGPoint(x: x, y: y)
             view.addSubview(word)
