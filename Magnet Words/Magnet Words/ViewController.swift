@@ -11,7 +11,7 @@ import UIKit
 let ROWS_GENERATED: CGFloat = 4
 
 //Buffer on the side of the application
-let TOP_BUFFER:CGFloat = 32
+let BOTTOM_BUFFER:CGFloat = 16
 let SIDE_BUFFER:CGFloat = 16
 //Buffer between words and rows
 let WORD_BUFFER:CGFloat = 14
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
             //Now that we're on the right row, place the label
             let x = SIDE_BUFFER + WORD_BUFFER + furthestLabelX + (word.frame.width / 2)
             furthestLabelX += word.frame.width + WORD_BUFFER //Update the furthest X
-            let y = view.frame.size.height - TOP_BUFFER - (row - 1) * (WORD_BUFFER + word.frame.height) - (word.frame.height / 2)
+            let y = view.frame.size.height - BOTTOM_BUFFER - (row - 1) * (WORD_BUFFER + word.frame.height) - (word.frame.height / 2)
             
             word.center = CGPoint(x: x, y: y)
             view.addSubview(word)
