@@ -27,13 +27,18 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3P0-B8-DS0"/>
                                     <barButtonItem title="Item" id="QwF-aQ-4DR"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="QiE-lm-pcJ"/>
-                                    <barButtonItem image="plus" width="42" id="wgG-Tx-NE8"/>
+                                    <barButtonItem image="plus" width="42" id="wgG-Tx-NE8">
+                                        <connections>
+                                            <action selector="newWords:" destination="BYZ-38-t0r" id="fg0-QM-voH"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="FYQ-HW-5LS"/>
                                     <barButtonItem title="Item" id="RpM-sE-LsN"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ab2-hk-7Nl"/>
                                     <barButtonItem title="Item" id="FAo-00-gCV"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="izz-qC-cHv"/>
                                 </items>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
