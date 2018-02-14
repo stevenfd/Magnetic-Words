@@ -32,7 +32,7 @@ class ViewController: UIViewController {
 
     //Function to place new words on the screen
     func placeNewWords() {
-        let furthestScreenDistance = view.frame.size.width - (SIDE_BUFFER * 2)
+        let furthestScreenDistanceX = view.frame.size.width - (SIDE_BUFFER * 2)
         
         var row:CGFloat = 1
         var furthestLabelX:CGFloat = 0
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             
             //Now lets do the work of placing these in rows
             //Check to see if this label would go off the screen
-            if(furthestLabelX + WORD_BUFFER + word.frame.width > furthestScreenDistance) {
+            if(furthestLabelX + WORD_BUFFER + word.frame.width > furthestScreenDistanceX) {
                 row += 1
                 furthestLabelX = 0
                 
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
             //Now that we're on the right row, place the label
             let x = SIDE_BUFFER + WORD_BUFFER + furthestLabelX + (word.frame.width / 2)
             furthestLabelX += word.frame.width + WORD_BUFFER //Update the furthest X
-            let y = TOP_BUFFER + (row - 1) * (WORD_BUFFER + word.frame.height) + (word.frame.height / 2)
+            let y = view.frame.size.height - TOP_BUFFER - (row - 1) * (WORD_BUFFER + word.frame.height) - (word.frame.height / 2)
             
             word.center = CGPoint(x: x, y: y)
             view.addSubview(word)
