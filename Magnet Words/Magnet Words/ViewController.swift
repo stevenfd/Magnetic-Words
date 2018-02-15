@@ -14,7 +14,7 @@ let ROWS_GENERATED: CGFloat = 4
 let BOTTOM_BUFFER:CGFloat = 16
 let SIDE_BUFFER:CGFloat = 16
 //Buffer between words and rows
-let WORD_BUFFER:CGFloat = 14
+var wordBuffer:CGFloat = 14
 
 var wordFontSize: CGFloat = 25
 var startingHeight: CGFloat = 0
@@ -28,6 +28,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Base the font size off of the device
+        if (UIDevice.current.userInterfaceIdiom == .phone) {
+            wordFontSize = 22
+            wordBuffer = 10
+        } else {
+            wordFontSize = 26
+            wordBuffer = 14
+        }
         
         //Same color as launch screen - baf0ff
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
@@ -90,7 +99,7 @@ class ViewController: UIViewController {
             
             //Now lets do the work of placing these in rows
             //Check to see if this label would go off the screen
-            if(furthestLabelX + WORD_BUFFER + word.frame.width > furthestScreenDistanceX) {
+            if(furthestLabelX + wordBuffer + word.frame.width > furthestScreenDistanceX) {
                 row += 1
                 furthestLabelX = 0
                 
@@ -101,9 +110,9 @@ class ViewController: UIViewController {
             }
             
             //Now that we're on the right row, place the label
-            let x = SIDE_BUFFER + WORD_BUFFER + furthestLabelX + (word.frame.width / 2)
-            furthestLabelX += word.frame.width + WORD_BUFFER //Update the furthest X
-            let y = startingHeight - (row - 1) * (WORD_BUFFER + word.frame.height) - (word.frame.height / 2)
+            let x = SIDE_BUFFER + wordBuffer + furthestLabelX + (word.frame.width / 2)
+            furthestLabelX += word.frame.width + wordBuffer //Update the furthest X
+            let y = startingHeight - (row - 1) * (wordBuffer + word.frame.height) - (word.frame.height / 2)
             
             word.center = CGPoint(x: x, y: y)
             view.addSubview(word)
@@ -141,7 +150,7 @@ class ViewController: UIViewController {
         word.sizeToFit()
         
         //Calculate the height at which the words are placed
-        let maxHeight = startingHeight - (ROWS_GENERATED - 1) * (WORD_BUFFER + word.frame.height)  - (word.frame.height / 2)
+        let maxHeight = startingHeight - (ROWS_GENERATED - 1) * (wordBuffer + word.frame.height)  - (word.frame.height / 2)
         
         for v in view.subviews{
             if v is UILabel{
