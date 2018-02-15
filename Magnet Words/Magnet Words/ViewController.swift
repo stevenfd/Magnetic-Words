@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var deleteIcon: UIBarButtonItem!
     @IBOutlet weak var wordHolder: UIView!
     @IBOutlet weak var downArrow: UIButton!
+    @IBOutlet weak var dropdownDeleteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,10 +158,13 @@ class ViewController: UIViewController {
         let position = panGesture.location(in: view)
         word.center = position
         
+        //Calculate the "real" rect for the delete button
+        //Which is it's frame + it's container
+        let realDeleteRect = CGRect(x: dropdownDeleteButton.frame.minX, y: dropdownDeleteButton.frame.minY + wordHolder.frame.minY, width: dropdownDeleteButton.frame.size.width, height: dropdownDeleteButton.frame.size.height)
         
         //Check to see if the word is within the delete icon
         //Since the UIBarButtons don't have frames, have to estimate
-        if(word.frame.maxX > view.frame.size.width * 0.74 && word.frame.maxY > toolBar.frame.minY) {
+        if(word.frame.maxX > view.frame.size.width * 0.74 && word.frame.maxY > toolBar.frame.minY || word.frame.intersects(realDeleteRect)) {
             word.backgroundColor = UIColor.red
             
             if panGesture.state == UIGestureRecognizerState.ended {
@@ -170,6 +174,9 @@ class ViewController: UIViewController {
             word.backgroundColor = UIColor.white
         }
         
+        print(word.frame.intersects(dropdownDeleteButton.frame))
+        print(dropdownDeleteButton.frame)
+        print(word.frame)
     }
     
     //Function to remove old words, currently based off where they are positioned

@@ -56,6 +56,9 @@
                                             <constraint firstAttribute="height" constant="31" id="jRN-aj-kTP"/>
                                         </constraints>
                                         <state key="normal" image="refresh"/>
+                                        <connections>
+                                            <action selector="newWords:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kA5-ie-pah"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.72941176470588232" green="0.94117647058823528" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -96,6 +99,7 @@
                     <connections>
                         <outlet property="deleteIcon" destination="gX0-Ce-AuG" id="GTy-4K-GBp"/>
                         <outlet property="downArrow" destination="uue-XS-i2V" id="gHG-be-E6o"/>
+                        <outlet property="dropdownDeleteButton" destination="rAs-Yz-cSY" id="rCL-f4-rbm"/>
                         <outlet property="toolBar" destination="bXj-yz-JNB" id="qrn-70-ReZ"/>
                         <outlet property="wordHolder" destination="snU-1w-p45" id="laP-c9-SHI"/>
                     </connections>
