@@ -37,7 +37,21 @@ class ViewController: UIViewController {
         
         placeNewWords(startingHeight: startingHeight)
     }
-
+    
+    //Function to add a word when clicking the add button
+    /* Got help with this from https://www.simplifiedios.net/ios-dialog-box-with-input/ */
+    @IBAction func addWord(_ sender: Any) {
+        let addWordAlert = UIAlertController(title: "New Word", message: "Enter the word you would like to create", preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Enter", style: .default, handler: { (_) in
+                //Get the input values
+                let word = addWordAlert.textFields?[0].text
+            
+                
+            }
+        )
+    }
+    
     @IBAction func newWords(_ sender: Any) {
         removeOldWords(startingHeight: startingHeight)
         placeNewWords(startingHeight: startingHeight)
