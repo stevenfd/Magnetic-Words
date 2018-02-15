@@ -142,15 +142,19 @@ class ViewController: UIViewController {
         let position = panGesture.location(in: view)
         word.center = position
         
-        if panGesture.state == UIGestureRecognizerState.ended {
-            //Check to see if the word is within the delete icon
-            //Since the UIBarButtons don't have frames, have to estimate
-            if(word.frame.maxX > view.frame.size.width * 0.75 && word.frame.maxY > toolBar.frame.minY) {
+        
+        //Check to see if the word is within the delete icon
+        //Since the UIBarButtons don't have frames, have to estimate
+        if(word.frame.maxX > view.frame.size.width * 0.74 && word.frame.maxY > toolBar.frame.minY) {
+            word.backgroundColor = UIColor.red
+            
+            if panGesture.state == UIGestureRecognizerState.ended {
                 word.removeFromSuperview()
             }
-            
-            print("Outside of the gesture")
+        } else {
+            word.backgroundColor = UIColor.white
         }
+        
     }
     
     //Function to remove old words, currently based off where they are positioned
