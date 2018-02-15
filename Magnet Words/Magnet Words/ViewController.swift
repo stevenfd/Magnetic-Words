@@ -177,7 +177,7 @@ class ViewController: UIViewController {
     @objc private func dragWord(panGesture:UIPanGestureRecognizer) {
         let word = panGesture.view as! UILabel
         
-        let position = panGesture.location(in: wordHolder)
+        let position = panGesture.location(in: word.superview)
         word.center = position
         
         //Calculate the "real" rect for the delete button
