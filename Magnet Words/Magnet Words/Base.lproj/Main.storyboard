@@ -22,22 +22,17 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gFQ-3r-vNU"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3P0-B8-DS0"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="QiE-lm-pcJ"/>
-                                    <barButtonItem image="plus" width="42" id="wgG-Tx-NE8">
+                                    <barButtonItem image="plus" width="50" id="wgG-Tx-NE8">
                                         <connections>
                                             <action selector="addCustomWord:" destination="BYZ-38-t0r" id="gJd-ba-h82"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="FYQ-HW-5LS"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ab2-hk-7Nl"/>
-                                    <barButtonItem image="refresh" id="FAo-00-gCV">
+                                    <barButtonItem image="refresh" width="50" id="FAo-00-gCV">
                                         <connections>
                                             <action selector="newWords:" destination="BYZ-38-t0r" id="418-23-WqR"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="izz-qC-cHv"/>
+                                    <barButtonItem image="trash2" width="150" id="gX0-Ce-AuG"/>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
@@ -55,6 +50,7 @@
     </scenes>
     <resources>
         <image name="plus" width="512" height="512"/>
-        <image name="refresh" width="200" height="200"/>
+        <image name="refresh" width="97" height="97"/>
+        <image name="trash2" width="1600" height="1600"/>
     </resources>
 </document>
