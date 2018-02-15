@@ -18,9 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-yz-JNB">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-yz-JNB">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="MK5-eR-8Ds"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem image="plus" width="50" id="wgG-Tx-NE8">
                                         <connections>
@@ -36,8 +38,23 @@
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snU-1w-p45">
+                                <rect key="frame" x="0.0" y="463" width="375" height="160"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="QLY-e0-6eL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="snU-1w-p45" secondAttribute="trailing" id="7JH-HU-vLw"/>
+                            <constraint firstItem="bXj-yz-JNB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NGo-ws-8sR"/>
+                            <constraint firstItem="bXj-yz-JNB" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="bottom" id="TLe-aY-wko"/>
+                            <constraint firstItem="bXj-yz-JNB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h1e-k6-o8u"/>
+                            <constraint firstItem="snU-1w-p45" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rOa-4m-rwK"/>
+                            <constraint firstItem="bXj-yz-JNB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rfa-2t-nAO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -47,6 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
         </scene>
     </scenes>
     <resources>
