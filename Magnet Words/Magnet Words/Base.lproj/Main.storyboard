@@ -42,11 +42,12 @@
                                 <rect key="frame" x="0.0" y="431" width="375" height="192"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uue-XS-i2V">
-                                        <rect key="frame" x="169" y="8" width="37" height="17"/>
+                                        <rect key="frame" x="139" y="6" width="97" height="27"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="17" id="TXQ-cu-2IQ"/>
-                                            <constraint firstAttribute="width" constant="37" id="w7Y-oa-oBL"/>
+                                            <constraint firstAttribute="height" constant="27" id="TXQ-cu-2IQ"/>
+                                            <constraint firstAttribute="width" constant="97" id="w7Y-oa-oBL"/>
                                         </constraints>
+                                        <inset key="contentEdgeInsets" minX="30" minY="5" maxX="30" maxY="5"/>
                                         <state key="normal" title="⌄" image="down-arrow2"/>
                                     </button>
                                 </subviews>
@@ -54,7 +55,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="QLY-e0-6eL"/>
                                     <constraint firstItem="uue-XS-i2V" firstAttribute="centerX" secondItem="snU-1w-p45" secondAttribute="centerX" id="Uol-YZ-dwT"/>
-                                    <constraint firstItem="uue-XS-i2V" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="8" id="Wid-qB-aOJ"/>
+                                    <constraint firstItem="uue-XS-i2V" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="6" id="Wid-qB-aOJ"/>
                                 </constraints>
                             </view>
                         </subviews>
