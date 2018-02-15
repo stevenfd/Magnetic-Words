@@ -39,10 +39,22 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snU-1w-p45">
-                                <rect key="frame" x="0.0" y="463" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="431" width="375" height="192"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uue-XS-i2V">
+                                        <rect key="frame" x="169" y="8" width="37" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="TXQ-cu-2IQ"/>
+                                            <constraint firstAttribute="width" constant="37" id="w7Y-oa-oBL"/>
+                                        </constraints>
+                                        <state key="normal" title="⌄" image="down-arrow2"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.72941176470588232" green="0.94117647058823528" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="QLY-e0-6eL"/>
+                                    <constraint firstAttribute="height" constant="192" id="QLY-e0-6eL"/>
+                                    <constraint firstItem="uue-XS-i2V" firstAttribute="centerX" secondItem="snU-1w-p45" secondAttribute="centerX" id="Uol-YZ-dwT"/>
+                                    <constraint firstItem="uue-XS-i2V" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="8" id="Wid-qB-aOJ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -69,6 +81,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="down-arrow2" width="467" height="300"/>
         <image name="plus" width="512" height="512"/>
         <image name="refresh" width="97" height="97"/>
         <image name="trash2" width="1600" height="1600"/>
