@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
         
         //Figure out the starting height for the words
-        startingHeight = view.frame.size.height - BOTTOM_BUFFER - toolBar.frame.size.height
+        startingHeight = wordHolder.frame.size.height - BOTTOM_BUFFER
         
         placeNewWords(startingHeight: startingHeight)
     }
@@ -131,7 +131,7 @@ class ViewController: UIViewController {
             let y = startingHeight - (row - 1) * (wordBuffer + word.frame.height) - (word.frame.height / 2)
             
             word.center = CGPoint(x: x, y: y)
-            view.addSubview(word)
+            wordHolder.addSubview(word)
         }
     }
     
@@ -151,6 +151,7 @@ class ViewController: UIViewController {
         return word
     }
     
+    //Method to allow the user to drag the word holder up and down
     @objc private func dragWordHolder(panGesture:UIPanGestureRecognizer) {
         //Figure out the bounds
         //Bottom bound is height of toolbar + half of the downArrow
@@ -175,7 +176,8 @@ class ViewController: UIViewController {
     //Function to move the label where the user is dragging
     @objc private func dragWord(panGesture:UIPanGestureRecognizer) {
         let word = panGesture.view as! UILabel
-        let position = panGesture.location(in: view)
+        
+        let position = panGesture.location(in: wordHolder)
         word.center = position
         
         //Calculate the "real" rect for the delete button
@@ -193,21 +195,23 @@ class ViewController: UIViewController {
         } else {
             word.backgroundColor = UIColor.white
         }
+        
+        //If this is the first time they moved it we need to switch views
+        if panGesture.state == UIGestureRecognizerState.ended && wordHolder.subviews.contains(word){
+            word.removeFromSuperview()
+            
+            //Add the difference in height so it reappears
+            let difference = wordHolder.frame.minY
+            word.frame = CGRect(x: word.frame.minX, y: word.frame.minY + difference, width: word.frame.width, height: word.frame.height)
+            view.addSubview(word)
+        }
     }
     
-    //Function to remove old words, currently based off where they are positioned
+    //Function to remove old words, now we can just remove all from the wordHolder
     private func removeOldWords(startingHeight: CGFloat) {
-        let word = createBaseUILabel(text: " ")
-        
-        //Calculate the height at which the words are placed
-        let maxHeight = startingHeight - (ROWS_GENERATED - 1) * (wordBuffer + word.frame.height)  - (word.frame.height / 2)
-        
-        for v in view.subviews{
+        for v in wordHolder.subviews{
             if v is UILabel{
-                //don't remove it if they moved it
-                if v.center.y >= maxHeight {
-                    v.removeFromSuperview()
-                }
+                v.removeFromSuperview()
             }
         }
     }
