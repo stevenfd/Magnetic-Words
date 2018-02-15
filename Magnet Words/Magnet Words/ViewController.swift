@@ -149,7 +149,7 @@ class ViewController: UIViewController {
             word.backgroundColor = UIColor.red
             
             if panGesture.state == UIGestureRecognizerState.ended {
-                word.removeFromSuperview()
+                UIView.animate(withDuration: 0.75, animations: { word.alpha = 0.0; }, completion: { (_: Bool) in word.removeFromSuperview(); })
             }
         } else {
             word.backgroundColor = UIColor.white
