@@ -47,7 +47,7 @@ class ViewController: UIViewController {
                 //Get the input values
                 let word = addWordAlert.textFields?[0].text
             
-                
+            
             }
         )
     }
@@ -65,14 +65,11 @@ class ViewController: UIViewController {
         var furthestLabelX:CGFloat = 0
         
         while (row <= ROWS_GENERATED) {
-            let word = UILabel()
-            word.backgroundColor = UIColor.white
-            word.font = UIFont(name: word.font.fontName, size: wordFontSize)
             //Get a random word from the list of words
             //TODO: Prevent duplicates? Maybe not as big a deal with lots of words?
             let randNum = Int(arc4random_uniform(UInt32(words.count)))
-            word.text = " " + words[randNum] + " " //Spaces are to make the label bigger TODO: better way to do this?
-            word.sizeToFit()
+            
+            let word = createBaseUILabel(text: words[randNum])
             
             //Now lets do the work of placing these in rows
             //Check to see if this label would go off the screen
@@ -125,6 +122,18 @@ class ViewController: UIViewController {
         let word = panGesture.view as! UILabel
         let position = panGesture.location(in: view)
         word.center = position
+    }
+    
+    //Helper functions
+    
+    //Take in a word and create a UILabel with it
+    private func createBaseUILabel(text: String) -> UILabel {
+        let word = UILabel()
+        word.backgroundColor = UIColor.white
+        word.font = UIFont(name: word.font.fontName, size: wordFontSize)
+        word.text = " " + text + " " //Spaces are to make the label bigger TODO: better way to do this?
+        word.sizeToFit()
+        return word
     }
 }
 
