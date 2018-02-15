@@ -18,26 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-yz-JNB">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uue-XS-i2V">
+                                <rect key="frame" x="159" y="403" width="57" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="MK5-eR-8Ds"/>
+                                    <constraint firstAttribute="width" constant="57" id="9Ae-HR-Pmt"/>
+                                    <constraint firstAttribute="height" constant="29" id="VVF-dm-tsb"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem image="plus" width="50" id="wgG-Tx-NE8">
-                                        <connections>
-                                            <action selector="addCustomWord:" destination="BYZ-38-t0r" id="gJd-ba-h82"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="refresh" width="50" id="FAo-00-gCV">
-                                        <connections>
-                                            <action selector="newWords:" destination="BYZ-38-t0r" id="418-23-WqR"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="trash2" width="150" id="gX0-Ce-AuG"/>
-                                </items>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </toolbar>
+                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                <state key="normal" title="⌄" image="down-arrow2"/>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snU-1w-p45">
                                 <rect key="frame" x="0.0" y="431" width="375" height="192"/>
                                 <subviews>
@@ -70,18 +59,26 @@
                                     <constraint firstItem="1Gi-b3-6Io" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="4" id="xZA-eF-Mza"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uue-XS-i2V">
-                                <rect key="frame" x="159" y="403" width="57" height="29"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-yz-JNB">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="9Ae-HR-Pmt"/>
-                                    <constraint firstAttribute="height" constant="29" id="VVF-dm-tsb"/>
+                                    <constraint firstAttribute="height" constant="44" id="MK5-eR-8Ds"/>
                                 </constraints>
-                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
-                                <state key="normal" title="⌄" image="down-arrow2"/>
-                                <connections>
-                                    <action selector="downPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A2s-xu-vMB"/>
-                                </connections>
-                            </button>
+                                <items>
+                                    <barButtonItem image="plus" width="50" id="wgG-Tx-NE8">
+                                        <connections>
+                                            <action selector="addCustomWord:" destination="BYZ-38-t0r" id="gJd-ba-h82"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="refresh" width="50" id="FAo-00-gCV">
+                                        <connections>
+                                            <action selector="newWords:" destination="BYZ-38-t0r" id="418-23-WqR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="trash2" width="150" id="gX0-Ce-AuG"/>
+                                </items>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.72941176470588232" green="0.94117647058823528" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

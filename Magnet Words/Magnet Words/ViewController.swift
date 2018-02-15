@@ -47,6 +47,9 @@ class ViewController: UIViewController {
         
         downArrow.layer.borderWidth = 1.0
         downArrow.layer.borderColor = UIColor.black.cgColor
+        downArrow.isUserInteractionEnabled = true
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragWordHolder))
+        downArrow.addGestureRecognizer(panGesture)
         
         //Same color as launch screen - baf0ff
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
@@ -92,10 +95,6 @@ class ViewController: UIViewController {
         addWordAlert.addAction(cancelAction)
         
         self.present(addWordAlert, animated: true, completion: nil)
-    }
-    
-    @IBAction func downPress(_ sender: Any) {
-        print("Down pressed")
     }
     
     //Private helper functions
@@ -152,6 +151,27 @@ class ViewController: UIViewController {
         return word
     }
     
+    @objc private func dragWordHolder(panGesture:UIPanGestureRecognizer) {
+        //Figure out the bounds
+        //Bottom bound is height of toolbar + half of the downArrow
+        let bottomBound = view.frame.height - toolBar.frame.height - (downArrow.frame.height / 2)
+        
+        //Top bound is bottom + wordHolder
+        let topBound = bottomBound - wordHolder.frame.height
+        
+        let difference = wordHolder.center.y - downArrow.center.y
+        var height = panGesture.location(in: view).y
+        
+        //A little confusing cause top is really less, and bottom is actually higher
+        if(height < topBound) {
+            height = topBound
+        } else if (height > bottomBound) {
+            height = bottomBound
+        }
+        downArrow.center = CGPoint(x: wordHolder.center.x, y: height)
+        wordHolder.center = CGPoint(x: wordHolder.center.x, y: height + difference)
+    }
+    
     //Function to move the label where the user is dragging
     @objc private func dragWord(panGesture:UIPanGestureRecognizer) {
         let word = panGesture.view as! UILabel
@@ -173,10 +193,6 @@ class ViewController: UIViewController {
         } else {
             word.backgroundColor = UIColor.white
         }
-        
-        print(word.frame.intersects(dropdownDeleteButton.frame))
-        print(dropdownDeleteButton.frame)
-        print(word.frame)
     }
     
     //Function to remove old words, currently based off where they are positioned
