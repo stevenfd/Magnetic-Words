@@ -38,6 +38,12 @@ class ViewController: UIViewController {
         placeNewWords(startingHeight: startingHeight)
     }
     
+    //Function to handle "refreshing" the list of words
+    @IBAction func newWords(_ sender: Any) {
+        removeOldWords(startingHeight: startingHeight)
+        placeNewWords(startingHeight: startingHeight)
+    }
+    
     //Function to add a word when clicking the add button
     /* Got help with this from https://www.simplifiedios.net/ios-dialog-box-with-input/ */
     @IBAction func addWord(_ sender: Any) {
@@ -66,10 +72,7 @@ class ViewController: UIViewController {
         self.present(addWordAlert, animated: true, completion: nil)
     }
     
-    @IBAction func newWords(_ sender: Any) {
-        removeOldWords(startingHeight: startingHeight)
-        placeNewWords(startingHeight: startingHeight)
-    }
+    //Private helper functions
     
     //Function to place new words on the screen
     func placeNewWords(startingHeight: CGFloat) {
@@ -107,7 +110,31 @@ class ViewController: UIViewController {
         }
     }
     
-    func removeOldWords(startingHeight: CGFloat) {
+    //Take in a word and create a UILabel with it
+    private func createBaseUILabel(text: String) -> UILabel {
+        let word = UILabel()
+        word.backgroundColor = UIColor.white
+        word.font = UIFont(name: word.font.fontName, size: wordFontSize)
+        word.text = " " + text + " " //Spaces are to make the label bigger TODO: better way to do this?
+        word.sizeToFit()
+        
+        //Finally make them draggable
+        word.isUserInteractionEnabled = true
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragWord))
+        word.addGestureRecognizer(panGesture)
+        
+        return word
+    }
+    
+    //Function to move the label where the user is dragging
+    @objc private func dragWord(panGesture:UIPanGestureRecognizer) {
+        let word = panGesture.view as! UILabel
+        let position = panGesture.location(in: view)
+        word.center = position
+    }
+    
+    //Function to remove old words, currently based off where they are positioned
+    private func removeOldWords(startingHeight: CGFloat) {
         let word = UILabel()
         word.font = UIFont(name: word.font.fontName, size: wordFontSize)
         word.text = " "
@@ -126,29 +153,5 @@ class ViewController: UIViewController {
         }
     }
     
-    //Function to move the label where the user is dragging
-    @objc func dragWord(panGesture:UIPanGestureRecognizer) {
-        let word = panGesture.view as! UILabel
-        let position = panGesture.location(in: view)
-        word.center = position
-    }
-    
-    //Helper functions
-    
-    //Take in a word and create a UILabel with it
-    private func createBaseUILabel(text: String) -> UILabel {
-        let word = UILabel()
-        word.backgroundColor = UIColor.white
-        word.font = UIFont(name: word.font.fontName, size: wordFontSize)
-        word.text = " " + text + " " //Spaces are to make the label bigger TODO: better way to do this?
-        word.sizeToFit()
-        
-        //Finally make them draggable
-        word.isUserInteractionEnabled = true
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragWord))
-        word.addGestureRecognizer(panGesture)
-        
-        return word
-    }
 }
 
