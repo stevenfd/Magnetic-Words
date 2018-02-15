@@ -66,7 +66,10 @@ class ViewController: UIViewController {
             if word != nil {
                 let newLabel = self.createBaseUILabel(text: word!)
                 newLabel.center = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
+                newLabel.alpha = 0.0
                 self.view.addSubview(newLabel)
+                
+                UIView.animate(withDuration: 0.4, animations: { newLabel.alpha = 1.0; }, completion: nil)
             }
         })
         
