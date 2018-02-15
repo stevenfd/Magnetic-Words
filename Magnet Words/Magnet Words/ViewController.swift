@@ -26,6 +26,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var deleteIcon: UIBarButtonItem!
+    @IBOutlet weak var wordHolder: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,9 @@ class ViewController: UIViewController {
             wordFontSize = 26
             wordBuffer = 14
         }
+        
+        wordHolder.layer.borderWidth = 1.0
+        wordHolder.layer.borderColor = UIColor.black.cgColor
         
         //Same color as launch screen - baf0ff
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
@@ -162,10 +166,7 @@ class ViewController: UIViewController {
     
     //Function to remove old words, currently based off where they are positioned
     private func removeOldWords(startingHeight: CGFloat) {
-        let word = UILabel()
-        word.font = UIFont(name: word.font.fontName, size: wordFontSize)
-        word.text = " "
-        word.sizeToFit()
+        let word = createBaseUILabel(text: " ")
         
         //Calculate the height at which the words are placed
         let maxHeight = startingHeight - (ROWS_GENERATED - 1) * (wordBuffer + word.frame.height)  - (word.frame.height / 2)
