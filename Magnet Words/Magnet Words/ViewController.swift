@@ -25,6 +25,7 @@ let words = ["could","cloud","bot","bit","ask","a","geek","flame","file","ed","c
 class ViewController: UIViewController {
 
     @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var deleteIcon: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,6 +141,16 @@ class ViewController: UIViewController {
         let word = panGesture.view as! UILabel
         let position = panGesture.location(in: view)
         word.center = position
+        
+        if panGesture.state == UIGestureRecognizerState.ended {
+            //Check to see if the word is within the delete icon
+            //Since the UIBarButtons don't have frames, have to estimate
+            if(word.frame.maxX > view.frame.size.width * 0.75 && word.frame.maxY > toolBar.frame.minY) {
+                word.removeFromSuperview()
+            }
+            
+            print("Outside of the gesture")
+        }
     }
     
     //Function to remove old words, currently based off where they are positioned
