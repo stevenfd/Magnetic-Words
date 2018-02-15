@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var deleteIcon: UIBarButtonItem!
     @IBOutlet weak var wordHolder: UIView!
+    @IBOutlet weak var downArrow: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,9 @@ class ViewController: UIViewController {
         
         wordHolder.layer.borderWidth = 1.0
         wordHolder.layer.borderColor = UIColor.black.cgColor
+        
+        downArrow.layer.borderWidth = 1.0
+        downArrow.layer.borderColor = UIColor.black.cgColor
         
         //Same color as launch screen - baf0ff
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
@@ -87,6 +91,10 @@ class ViewController: UIViewController {
         addWordAlert.addAction(cancelAction)
         
         self.present(addWordAlert, animated: true, completion: nil)
+    }
+    
+    @IBAction func downPress(_ sender: Any) {
+        print("Down pressed")
     }
     
     //Private helper functions
