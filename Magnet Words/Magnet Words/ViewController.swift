@@ -43,13 +43,27 @@ class ViewController: UIViewController {
     @IBAction func addWord(_ sender: Any) {
         let addWordAlert = UIAlertController(title: "New Word", message: "Enter the word you would like to create", preferredStyle: .alert)
         
-        let alertAction = UIAlertAction(title: "Enter", style: .default, handler: { (_) in
-                //Get the input values
-                let word = addWordAlert.textFields?[0].text
+        let confirmAction = UIAlertAction(title: "Enter", style: .default, handler: { (_) in
+            //Get the input values
+            let word = addWordAlert.textFields?[0].text
             
-            
+            if word != nil {
+                let newLabel = self.createBaseUILabel(text: word!)
+                newLabel.center = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
+                self.view.addSubview(newLabel)
             }
-        )
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in })
+        
+        addWordAlert.addTextField { (textField) in
+            textField.placeholder = "Enter word"
+        }
+        
+        addWordAlert.addAction(confirmAction)
+        addWordAlert.addAction(cancelAction)
+        
+        self.present(addWordAlert, animated: true, completion: nil)
     }
     
     @IBAction func newWords(_ sender: Any) {
@@ -69,7 +83,7 @@ class ViewController: UIViewController {
             //TODO: Prevent duplicates? Maybe not as big a deal with lots of words?
             let randNum = Int(arc4random_uniform(UInt32(words.count)))
             
-            let word = createBaseUILabel(text: words[randNum])
+            let word = self.createBaseUILabel(text: words[randNum])
             
             //Now lets do the work of placing these in rows
             //Check to see if this label would go off the screen
@@ -90,11 +104,6 @@ class ViewController: UIViewController {
             
             word.center = CGPoint(x: x, y: y)
             view.addSubview(word)
-            
-            //Finally make them draggable
-            word.isUserInteractionEnabled = true
-            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragWord))
-            word.addGestureRecognizer(panGesture)
         }
     }
     
@@ -133,6 +142,12 @@ class ViewController: UIViewController {
         word.font = UIFont(name: word.font.fontName, size: wordFontSize)
         word.text = " " + text + " " //Spaces are to make the label bigger TODO: better way to do this?
         word.sizeToFit()
+        
+        //Finally make them draggable
+        word.isUserInteractionEnabled = true
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragWord))
+        word.addGestureRecognizer(panGesture)
+        
         return word
     }
 }
