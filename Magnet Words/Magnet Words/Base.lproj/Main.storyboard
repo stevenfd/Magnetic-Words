@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Book Word Magnets-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Book_Word_Magnets" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,7 +104,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Yr9-fI-yHo"/>
+                    <navigationItem key="navigationItem" title="Book Word Magnets" id="Yr9-fI-yHo">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Bi9-gT-tuX"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="deleteIcon" destination="gX0-Ce-AuG" id="GTy-4K-GBp"/>
                         <outlet property="downArrow" destination="uue-XS-i2V" id="gHG-be-E6o"/>
@@ -120,13 +122,13 @@
         <!--Theme Selection-->
         <scene sceneID="sbK-eh-IgK">
             <objects>
-                <tableViewController id="RX7-U8-mib" sceneMemberID="viewController">
+                <tableViewController id="RX7-U8-mib" customClass="TableViewController" customModule="Book_Word_Magnets" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gBw-pN-Jpc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iI0-yB-Wtw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThemeCell" id="iI0-yB-Wtw">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iI0-yB-Wtw" id="N0c-BE-wDl">
