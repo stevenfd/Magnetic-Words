@@ -49,13 +49,19 @@
                                             <action selector="newWords:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kA5-ie-pah"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbP-eP-FFI">
+                                        <rect key="frame" x="68" y="4" width="239" height="30"/>
+                                        <state key="normal" title="Theme"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.72941176470588232" green="0.94117647058823528" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="QLY-e0-6eL"/>
                                     <constraint firstItem="1Gi-b3-6Io" firstAttribute="leading" secondItem="snU-1w-p45" secondAttribute="leading" constant="16" id="Yaq-nd-rvq"/>
                                     <constraint firstAttribute="trailing" secondItem="rAs-Yz-cSY" secondAttribute="trailing" constant="16" id="eif-CR-gGF"/>
+                                    <constraint firstItem="gbP-eP-FFI" firstAttribute="leading" secondItem="1Gi-b3-6Io" secondAttribute="trailing" constant="15" id="iIg-xg-KNE"/>
                                     <constraint firstItem="rAs-Yz-cSY" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="4" id="irP-b1-Jye"/>
+                                    <constraint firstItem="rAs-Yz-cSY" firstAttribute="leading" secondItem="gbP-eP-FFI" secondAttribute="trailing" constant="18" id="mNq-eO-tVI"/>
                                     <constraint firstItem="1Gi-b3-6Io" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="4" id="xZA-eF-Mza"/>
                                 </constraints>
                             </view>
