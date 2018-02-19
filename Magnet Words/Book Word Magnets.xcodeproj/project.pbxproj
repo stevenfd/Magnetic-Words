@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F04D558203B912A00E41E32 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D557203B912A00E41E32 /* Theme.swift */; };
+		3F04D560203B919700E41E32 /* Book_Word_MagnetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D55F203B919600E41E32 /* Book_Word_MagnetsTests.swift */; };
+		3F04D568203B91B200E41E32 /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D567203B91B200E41E32 /* ThemeTests.swift */; };
+		3F04D569203B92BE00E41E32 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D557203B912A00E41E32 /* Theme.swift */; };
 		3F29B53220375613002E34B1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29B53120375613002E34B1 /* TableViewController.swift */; };
 		3F3ABC4B202CE38800A9AFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3ABC4A202CE38800A9AFED /* AppDelegate.swift */; };
 		3F3ABC4D202CE38800A9AFED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3ABC4C202CE38800A9AFED /* ViewController.swift */; };
@@ -15,7 +19,22 @@
 		3F3ABC55202CE38800A9AFED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3F04D562203B919700E41E32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F3ABC3F202CE38800A9AFED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F3ABC46202CE38800A9AFED;
+			remoteInfo = "Book Word Magnets";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3F04D557203B912A00E41E32 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		3F04D55D203B919600E41E32 /* Book Word MagnetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book Word MagnetsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F04D55F203B919600E41E32 /* Book_Word_MagnetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Word_MagnetsTests.swift; sourceTree = "<group>"; };
+		3F04D561203B919700E41E32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F04D567203B91B200E41E32 /* ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
 		3F29B53120375613002E34B1 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3F3ABC47202CE38800A9AFED /* Book Word Magnets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Word Magnets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3ABC4A202CE38800A9AFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -27,6 +46,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3F04D55A203B919600E41E32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F3ABC44202CE38800A9AFED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,10 +63,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F04D55E203B919600E41E32 /* Book Word MagnetsTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F04D567203B91B200E41E32 /* ThemeTests.swift */,
+				3F04D55F203B919600E41E32 /* Book_Word_MagnetsTests.swift */,
+				3F04D561203B919700E41E32 /* Info.plist */,
+			);
+			path = "Book Word MagnetsTests";
+			sourceTree = "<group>";
+		};
 		3F3ABC3E202CE38700A9AFED = {
 			isa = PBXGroup;
 			children = (
 				3F3ABC49202CE38800A9AFED /* Magnet Words */,
+				3F04D55E203B919600E41E32 /* Book Word MagnetsTests */,
 				3F3ABC48202CE38800A9AFED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				3F3ABC47202CE38800A9AFED /* Book Word Magnets.app */,
+				3F04D55D203B919600E41E32 /* Book Word MagnetsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +101,7 @@
 				3F3ABC51202CE38800A9AFED /* Assets.xcassets */,
 				3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */,
 				3F3ABC56202CE38800A9AFED /* Info.plist */,
+				3F04D557203B912A00E41E32 /* Theme.swift */,
 			);
 			path = "Magnet Words";
 			sourceTree = "<group>";
@@ -70,6 +109,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3F04D55C203B919600E41E32 /* Book Word MagnetsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F04D564203B919700E41E32 /* Build configuration list for PBXNativeTarget "Book Word MagnetsTests" */;
+			buildPhases = (
+				3F04D559203B919600E41E32 /* Sources */,
+				3F04D55A203B919600E41E32 /* Frameworks */,
+				3F04D55B203B919600E41E32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F04D563203B919700E41E32 /* PBXTargetDependency */,
+			);
+			name = "Book Word MagnetsTests";
+			productName = "Book Word MagnetsTests";
+			productReference = 3F04D55D203B919600E41E32 /* Book Word MagnetsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3F3ABC46202CE38800A9AFED /* Book Word Magnets */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F3ABC59202CE38800A9AFED /* Build configuration list for PBXNativeTarget "Book Word Magnets" */;
@@ -97,6 +154,11 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Steven Domitrz";
 				TargetAttributes = {
+					3F04D55C203B919600E41E32 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3F3ABC46202CE38800A9AFED;
+					};
 					3F3ABC46202CE38800A9AFED = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -118,11 +180,19 @@
 			projectRoot = "";
 			targets = (
 				3F3ABC46202CE38800A9AFED /* Book Word Magnets */,
+				3F04D55C203B919600E41E32 /* Book Word MagnetsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3F04D55B203B919600E41E32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F3ABC45202CE38800A9AFED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,17 +206,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3F04D559203B919600E41E32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F04D569203B92BE00E41E32 /* Theme.swift in Sources */,
+				3F04D560203B919700E41E32 /* Book_Word_MagnetsTests.swift in Sources */,
+				3F04D568203B91B200E41E32 /* ThemeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F3ABC43202CE38800A9AFED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3F3ABC4D202CE38800A9AFED /* ViewController.swift in Sources */,
+				3F04D558203B912A00E41E32 /* Theme.swift in Sources */,
 				3F29B53220375613002E34B1 /* TableViewController.swift in Sources */,
 				3F3ABC4B202CE38800A9AFED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F04D563203B919700E41E32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F3ABC46202CE38800A9AFED /* Book Word Magnets */;
+			targetProxy = 3F04D562203B919700E41E32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3F3ABC4E202CE38800A9AFED /* Main.storyboard */ = {
@@ -168,6 +257,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3F04D565203B919700E41E32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Book Word MagnetsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.StevenDomitrz.Book-Word-MagnetsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Book Word Magnets.app/Book Word Magnets";
+			};
+			name = Debug;
+		};
+		3F04D566203B919700E41E32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Book Word MagnetsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.StevenDomitrz.Book-Word-MagnetsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Book Word Magnets.app/Book Word Magnets";
+			};
+			name = Release;
+		};
 		3F3ABC57202CE38800A9AFED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -311,6 +430,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F04D564203B919700E41E32 /* Build configuration list for PBXNativeTarget "Book Word MagnetsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F04D565203B919700E41E32 /* Debug */,
+				3F04D566203B919700E41E32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3F3ABC42202CE38800A9AFED /* Build configuration list for PBXProject "Book Word Magnets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

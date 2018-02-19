@@ -29,6 +29,16 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F04D55C203B919600E41E32"
+               BuildableName = "Book Word MagnetsTests.xctest"
+               BlueprintName = "Book Word MagnetsTests"
+               ReferencedContainer = "container:Book Word Magnets.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
