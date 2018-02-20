@@ -10,6 +10,9 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
+    var themes: [Theme] = []
+    var selectedRow = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,13 +26,15 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
+        return themes.count
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRow = indexPath.row
     }
 
     
@@ -37,7 +42,7 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ThemeCell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = "Proto Text"
+        cell.textLabel?.text = themes[indexPath.row].getName()
 
         return cell
     }

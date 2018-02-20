@@ -54,7 +54,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Theme"/>
                                         <connections>
-                                            <segue destination="RX7-U8-mib" kind="show" id="N3N-Mz-2cT"/>
+                                            <segue destination="RX7-U8-mib" kind="show" identifier="showThemeSegue" id="hQh-yV-QFG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -111,6 +111,7 @@
                         <outlet property="deleteIcon" destination="gX0-Ce-AuG" id="GTy-4K-GBp"/>
                         <outlet property="downArrow" destination="uue-XS-i2V" id="gHG-be-E6o"/>
                         <outlet property="dropdownDeleteButton" destination="rAs-Yz-cSY" id="rCL-f4-rbm"/>
+                        <outlet property="themeButton" destination="gbP-eP-FFI" id="Rl6-KP-XgR"/>
                         <outlet property="toolBar" destination="bXj-yz-JNB" id="qrn-70-ReZ"/>
                         <outlet property="wordHolder" destination="snU-1w-p45" id="laP-c9-SHI"/>
                     </connections>

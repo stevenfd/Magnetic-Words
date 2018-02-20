@@ -29,9 +29,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var wordHolder: UIView!
     @IBOutlet weak var downArrow: UIButton!
     @IBOutlet weak var dropdownDeleteButton: UIButton!
+    @IBOutlet weak var themeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let baseController = BaseController()
+        baseController.setUp()
         
         //Base the font size off of the device
         if (UIDevice.current.userInterfaceIdiom == .phone) {
@@ -58,6 +62,14 @@ class ViewController: UIViewController {
         startingHeight = wordHolder.frame.size.height - BOTTOM_BUFFER
         
         placeNewWords(startingHeight: startingHeight)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showThemeSegue" {
+            print("break here?")
+            let themeVC = segue.destination as! TableViewController
+            themeVC.themes = themeManager.getAllThemes()
+        }
     }
     
     //Function to handle "refreshing" the list of words
@@ -109,9 +121,10 @@ class ViewController: UIViewController {
         while (row <= ROWS_GENERATED) {
             //Get a random word from the list of words
             //TODO: Prevent duplicates? Maybe not as big a deal with lots of words?
-            let randNum = Int(arc4random_uniform(UInt32(words.count)))
+            let currentWords = themeManager.getCurrentTheme().getWords()
+            let randNum = Int(arc4random_uniform(UInt32(currentWords.count)))
             
-            let word = self.createBaseUILabel(text: words[randNum])
+            let word = self.createBaseUILabel(text: currentWords[randNum])
             
             //Now lets do the work of placing these in rows
             //Check to see if this label would go off the screen
