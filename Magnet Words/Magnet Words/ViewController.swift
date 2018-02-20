@@ -72,6 +72,13 @@ class ViewController: UIViewController {
         }
     }
     
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        let themeVC = unwindSegue.source as! TableViewController
+        let newIndex = themeVC.selectedRow
+        themeManager.setCurrentThemeIndex(newIndex: newIndex)
+        themeButton.titleLabel?.text = themeManager.getCurrentTheme().getName()
+    }
+    
     //Function to handle "refreshing" the list of words
     @IBAction func newWords(_ sender: Any) {
         removeOldWords(startingHeight: startingHeight)

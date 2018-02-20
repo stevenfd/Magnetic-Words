@@ -46,6 +46,10 @@ class TableViewController: UITableViewController {
 
         return cell
     }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // Override to support conditional editing of the table view.
