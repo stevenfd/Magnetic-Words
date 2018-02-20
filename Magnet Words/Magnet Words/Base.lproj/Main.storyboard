@@ -54,7 +54,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Theme"/>
                                         <connections>
-                                            <segue destination="3Db-QK-kKM" kind="show" id="Lmu-MT-m5D"/>
+                                            <segue destination="zjt-tv-eJL" kind="popoverPresentation" identifier="showThemeSegue" popoverAnchorView="gbP-eP-FFI" id="VUN-7R-6pw">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -118,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="31.934032983508249"/>
+            <point key="canvasLocation" x="1522" y="44"/>
         </scene>
         <!--Theme Selection-->
         <scene sceneID="sbK-eh-IgK">
@@ -149,30 +151,35 @@
                                 <action selector="cancelTapped:" destination="RX7-U8-mib" id="ww6-Lq-Vtj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="gIG-bs-BUE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="gIG-bs-BUE">
+                            <connections>
+                                <segue destination="fsY-Ph-749" kind="unwind" unwindAction="unwindToMainWithSegue:" id="7eb-Sp-to6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFe-z9-4SY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fsY-Ph-749" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2272.8000000000002" y="44.527736131934034"/>
+            <point key="canvasLocation" x="3153" y="44"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="3CM-pG-AMa">
+        <scene sceneID="G7s-xW-liR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Db-QK-kKM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zjt-tv-eJL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eIx-7Q-FZC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JhO-xi-EQe">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="RX7-U8-mib" kind="relationship" relationship="rootViewController" id="UjJ-vY-2f8"/>
+                        <segue destination="RX7-U8-mib" kind="relationship" relationship="rootViewController" id="RnV-HM-Foe"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XAa-b8-mh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8oi-bS-d6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326" y="45"/>
+            <point key="canvasLocation" x="2272" y="44.07796101949026"/>
         </scene>
     </scenes>
     <resources>

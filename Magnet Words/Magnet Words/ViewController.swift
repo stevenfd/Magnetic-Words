@@ -61,22 +61,25 @@ class ViewController: UIViewController {
         //Figure out the starting height for the words
         startingHeight = wordHolder.frame.size.height - BOTTOM_BUFFER
         
+        themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
         placeNewWords(startingHeight: startingHeight)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showThemeSegue" {
             print("break here?")
-            let themeVC = segue.destination as! TableViewController
+            let themeVC = segue.destination.childViewControllers[0] as! TableViewController
             themeVC.themes = themeManager.getAllThemes()
         }
     }
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        let themeVC = unwindSegue.source as! TableViewController
+    @IBAction func unwindToMain(segue: UIStoryboardSegue) {
+        let themeVC = segue.source as! TableViewController
         let newIndex = themeVC.selectedRow
         themeManager.setCurrentThemeIndex(newIndex: newIndex)
-        themeButton.titleLabel?.text = themeManager.getCurrentTheme().getName()
+        themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
+        
+        newWords(self)
     }
     
     //Function to handle "refreshing" the list of words
@@ -196,6 +199,7 @@ class ViewController: UIViewController {
     //Function to move the label where the user is dragging
     @objc private func dragWord(panGesture:UIPanGestureRecognizer) {
         let word = panGesture.view as! UILabel
+        view.bringSubview(toFront: word)
         
         let position = panGesture.location(in: word.superview)
         word.center = position
@@ -224,6 +228,10 @@ class ViewController: UIViewController {
             let difference = wordHolder.frame.minY
             word.frame = CGRect(x: word.frame.minX, y: word.frame.minY + difference, width: word.frame.width, height: word.frame.height)
             view.addSubview(word)
+        }
+    
+        if panGesture.state == UIGestureRecognizerState.ended {
+            view.sendSubview(toBack: word)
         }
     }
     
