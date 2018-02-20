@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var downArrow: UIButton!
     @IBOutlet weak var dropdownDeleteButton: UIButton!
     @IBOutlet weak var themeButton: UIButton!
+    @IBOutlet weak var wordHolderBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -183,7 +184,6 @@ class ViewController: UIViewController {
         //Top bound is bottom + wordHolder
         let topBound = bottomBound - wordHolder.frame.height
         
-        let difference = wordHolder.center.y - downArrow.center.y
         var height = panGesture.location(in: view).y
         
         //A little confusing cause top is really less, and bottom is actually higher
@@ -192,8 +192,10 @@ class ViewController: UIViewController {
         } else if (height > bottomBound) {
             height = bottomBound
         }
+        
+        let downArrowOriginal = downArrow.center.y
         downArrow.center = CGPoint(x: wordHolder.center.x, y: height)
-        wordHolder.center = CGPoint(x: wordHolder.center.x, y: height + difference)
+        wordHolderBottomConstraint.constant += (downArrowOriginal - height)
     }
     
     //Function to move the label where the user is dragging
