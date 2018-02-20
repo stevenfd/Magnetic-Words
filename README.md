@@ -38,3 +38,25 @@ A highly customizable word magnets app for iOS, with different book themes.
 ![Main Screen](Media/Screenshots/Checkpoint1/mainscreen.png)
 
 
+## Checkpoint 2
+### Features Completed
+* User can choose between sets of words
+* Words on screen can be replaced with new ones
+* Words can be deleted
+* Custom words can be added
+* Words are in a draggable view, to allow use of more of the screen
+
+
+### Screenshots
+
+* Main Screen
+
+![Main Screen](Media/Screenshots/Checkpoint2/generalScreen.png)
+
+* Theme Selection Screen
+
+![Theme Selection Screen](Media/Screenshots/Checkpoint2/themeSelection.png)
+
+* Custom Word Popup
+
+![Custom Word Popup](Media/Screenshots/Checkpoint2/customWord.png)
