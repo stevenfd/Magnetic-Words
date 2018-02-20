@@ -11,6 +11,9 @@
 		3F04D560203B919700E41E32 /* Book_Word_MagnetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D55F203B919600E41E32 /* Book_Word_MagnetsTests.swift */; };
 		3F04D568203B91B200E41E32 /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D567203B91B200E41E32 /* ThemeTests.swift */; };
 		3F04D569203B92BE00E41E32 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D557203B912A00E41E32 /* Theme.swift */; };
+		3F04D56B203B957200E41E32 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D56A203B957200E41E32 /* ThemeManager.swift */; };
+		3F04D56C203B957D00E41E32 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D56A203B957200E41E32 /* ThemeManager.swift */; };
+		3F04D56E203B98EB00E41E32 /* ThemeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F04D56D203B98EB00E41E32 /* ThemeManagerTests.swift */; };
 		3F29B53220375613002E34B1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29B53120375613002E34B1 /* TableViewController.swift */; };
 		3F3ABC4B202CE38800A9AFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3ABC4A202CE38800A9AFED /* AppDelegate.swift */; };
 		3F3ABC4D202CE38800A9AFED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3ABC4C202CE38800A9AFED /* ViewController.swift */; };
@@ -35,6 +38,8 @@
 		3F04D55F203B919600E41E32 /* Book_Word_MagnetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Word_MagnetsTests.swift; sourceTree = "<group>"; };
 		3F04D561203B919700E41E32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F04D567203B91B200E41E32 /* ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
+		3F04D56A203B957200E41E32 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		3F04D56D203B98EB00E41E32 /* ThemeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManagerTests.swift; sourceTree = "<group>"; };
 		3F29B53120375613002E34B1 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3F3ABC47202CE38800A9AFED /* Book Word Magnets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Word Magnets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3ABC4A202CE38800A9AFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				3F04D567203B91B200E41E32 /* ThemeTests.swift */,
+				3F04D56D203B98EB00E41E32 /* ThemeManagerTests.swift */,
 				3F04D55F203B919600E41E32 /* Book_Word_MagnetsTests.swift */,
 				3F04D561203B919700E41E32 /* Info.plist */,
 			);
@@ -102,6 +108,7 @@
 				3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */,
 				3F3ABC56202CE38800A9AFED /* Info.plist */,
 				3F04D557203B912A00E41E32 /* Theme.swift */,
+				3F04D56A203B957200E41E32 /* ThemeManager.swift */,
 			);
 			path = "Magnet Words";
 			sourceTree = "<group>";
@@ -213,6 +220,8 @@
 				3F04D569203B92BE00E41E32 /* Theme.swift in Sources */,
 				3F04D560203B919700E41E32 /* Book_Word_MagnetsTests.swift in Sources */,
 				3F04D568203B91B200E41E32 /* ThemeTests.swift in Sources */,
+				3F04D56E203B98EB00E41E32 /* ThemeManagerTests.swift in Sources */,
+				3F04D56C203B957D00E41E32 /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +231,7 @@
 			files = (
 				3F3ABC4D202CE38800A9AFED /* ViewController.swift in Sources */,
 				3F04D558203B912A00E41E32 /* Theme.swift in Sources */,
+				3F04D56B203B957200E41E32 /* ThemeManager.swift in Sources */,
 				3F29B53220375613002E34B1 /* TableViewController.swift in Sources */,
 				3F3ABC4B202CE38800A9AFED /* AppDelegate.swift in Sources */,
 			);
