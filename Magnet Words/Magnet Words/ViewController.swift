@@ -25,11 +25,10 @@ let words = ["could","cloud","bot","bit","ask","a","geek","flame","file","ed","c
 class ViewController: UIViewController {
 
     @IBOutlet weak var toolBar: UIToolbar!
-    @IBOutlet weak var deleteIcon: UIBarButtonItem!
     @IBOutlet weak var wordHolder: UIView!
     @IBOutlet weak var downArrow: UIButton!
-    @IBOutlet weak var dropdownDeleteButton: UIButton!
     @IBOutlet weak var themeButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var wordHolderBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -213,12 +212,8 @@ class ViewController: UIViewController {
         let position = panGesture.location(in: word.superview)
         word.center = position
         
-        //Calculate the "real" rect for the delete button
-        //Which is it's frame + it's container
-        let realDeleteRect = CGRect(x: dropdownDeleteButton.frame.minX, y: dropdownDeleteButton.frame.minY + wordHolder.frame.minY, width: dropdownDeleteButton.frame.size.width, height: dropdownDeleteButton.frame.size.height)
-        
         //Check to see if the word is within the delete icon
-        if(word.frame.intersects(realDeleteRect)) {
+        if(word.frame.intersects(deleteButton.frame)) {
             word.backgroundColor = UIColor.red
             
             if panGesture.state == UIGestureRecognizerState.ended {

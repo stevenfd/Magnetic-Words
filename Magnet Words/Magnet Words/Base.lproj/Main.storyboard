@@ -18,6 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAs-Yz-cSY">
+                                <rect key="frame" x="333" y="396" width="34" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="VIP-5P-e8k"/>
+                                    <constraint firstAttribute="height" constant="31" id="bAH-Sg-MU3"/>
+                                </constraints>
+                                <state key="normal" image="trash2"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uue-XS-i2V">
                                 <rect key="frame" x="159" y="403" width="57" height="29"/>
                                 <constraints>
@@ -30,14 +38,6 @@
                             <view verifyAmbiguity="off" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snU-1w-p45">
                                 <rect key="frame" x="0.0" y="431" width="375" height="192"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAs-Yz-cSY">
-                                        <rect key="frame" x="325" y="4" width="34" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="34" id="VIP-5P-e8k"/>
-                                            <constraint firstAttribute="height" constant="31" id="bAH-Sg-MU3"/>
-                                        </constraints>
-                                        <state key="normal" image="trash2"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gi-b3-6Io">
                                         <rect key="frame" x="16" y="4" width="37" height="31"/>
                                         <constraints>
@@ -65,9 +65,7 @@
                                     <constraint firstItem="gbP-eP-FFI" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="1" id="Htn-71-Qhs"/>
                                     <constraint firstAttribute="height" constant="192" id="QLY-e0-6eL"/>
                                     <constraint firstItem="1Gi-b3-6Io" firstAttribute="leading" secondItem="snU-1w-p45" secondAttribute="leading" constant="16" id="Yaq-nd-rvq"/>
-                                    <constraint firstAttribute="trailing" secondItem="rAs-Yz-cSY" secondAttribute="trailing" constant="16" id="eif-CR-gGF"/>
                                     <constraint firstItem="gbP-eP-FFI" firstAttribute="leading" secondItem="1Gi-b3-6Io" secondAttribute="trailing" constant="8" id="gda-mp-BKv"/>
-                                    <constraint firstItem="rAs-Yz-cSY" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="4" id="irP-b1-Jye"/>
                                     <constraint firstItem="gbP-eP-FFI" firstAttribute="centerX" secondItem="snU-1w-p45" secondAttribute="centerX" id="n87-Wg-3Af"/>
                                     <constraint firstItem="1Gi-b3-6Io" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="top" constant="4" id="xZA-eF-Mza"/>
                                 </constraints>
@@ -91,7 +89,9 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="snU-1w-p45" secondAttribute="trailing" id="7JH-HU-vLw"/>
                             <constraint firstItem="snU-1w-p45" firstAttribute="top" secondItem="uue-XS-i2V" secondAttribute="bottom" constant="-1" id="CVU-yt-wh2"/>
+                            <constraint firstItem="snU-1w-p45" firstAttribute="top" secondItem="rAs-Yz-cSY" secondAttribute="bottom" constant="4" id="JuE-BC-0FU"/>
                             <constraint firstItem="bXj-yz-JNB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NGo-ws-8sR"/>
+                            <constraint firstAttribute="trailing" secondItem="rAs-Yz-cSY" secondAttribute="trailing" constant="8" id="Rmh-xu-gdW"/>
                             <constraint firstItem="bXj-yz-JNB" firstAttribute="top" secondItem="snU-1w-p45" secondAttribute="bottom" identifier="wordHolderBottomConstraint" id="TLe-aY-wko"/>
                             <constraint firstItem="uue-XS-i2V" firstAttribute="centerX" secondItem="snU-1w-p45" secondAttribute="centerX" id="Uai-4u-WY1"/>
                             <constraint firstItem="bXj-yz-JNB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h1e-k6-o8u"/>
@@ -104,8 +104,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Bi9-gT-tuX"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteButton" destination="rAs-Yz-cSY" id="fip-bF-BOj"/>
                         <outlet property="downArrow" destination="uue-XS-i2V" id="gHG-be-E6o"/>
-                        <outlet property="dropdownDeleteButton" destination="rAs-Yz-cSY" id="rCL-f4-rbm"/>
                         <outlet property="themeButton" destination="gbP-eP-FFI" id="Rl6-KP-XgR"/>
                         <outlet property="toolBar" destination="bXj-yz-JNB" id="qrn-70-ReZ"/>
                         <outlet property="wordHolder" destination="snU-1w-p45" id="laP-c9-SHI"/>
