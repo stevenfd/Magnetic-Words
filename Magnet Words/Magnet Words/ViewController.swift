@@ -178,6 +178,11 @@ class ViewController: UIViewController {
     
     //Method to allow the user to drag the word holder up and down
     @objc private func dragWordHolder(panGesture:UIPanGestureRecognizer) {
+        //Whenever the word holder is dragged, bring it to the front
+        view.bringSubview(toFront: wordHolder)
+        view.bringSubview(toFront: downArrow)
+        view.bringSubview(toFront: toolBar)  //Also need to bring the toolbar to the front so its not hidden
+        
         //Figure out the bounds
         //Bottom bound is height of toolbar + half of the downArrow
         let bottomBound = view.frame.height - toolBar.frame.height - (downArrow.frame.height / 2)
@@ -214,15 +219,16 @@ class ViewController: UIViewController {
         //Check to see if the word is within the delete icon
         //Since the UIBarButtons don't have frames, have to estimate
         if(word.frame.maxX > view.frame.size.width * 0.74 && word.frame.maxY > toolBar.frame.minY || word.frame.intersects(realDeleteRect)) {
+            
             word.backgroundColor = UIColor.red
             
             if panGesture.state == UIGestureRecognizerState.ended {
                 UIView.animate(withDuration: 0.75, animations: { word.alpha = 0.0; }, completion: { (_: Bool) in word.removeFromSuperview(); })
             }
         } else {
-            if panGesture.state == UIGestureRecognizerState.ended {
-                view.sendSubview(toBack: word)
-            }
+            //if panGesture.state == UIGestureRecognizerState.ended {
+            //    view.sendSubview(toBack: word)
+            //}
             word.backgroundColor = UIColor.white
         }
         
