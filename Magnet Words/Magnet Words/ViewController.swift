@@ -207,6 +207,7 @@ class ViewController: UIViewController {
     //Function to move the label where the user is dragging
     @objc private func dragWord(panGesture:UIPanGestureRecognizer) {
         let word = panGesture.view as! UILabel
+        
         view.bringSubview(toFront: word)
         
         let position = panGesture.location(in: word.superview)
