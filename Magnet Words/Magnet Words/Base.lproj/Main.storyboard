@@ -83,12 +83,6 @@
                                             <action selector="addCustomWord:" destination="BYZ-38-t0r" id="gJd-ba-h82"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="refresh" width="50" id="FAo-00-gCV">
-                                        <connections>
-                                            <action selector="newWords:" destination="BYZ-38-t0r" id="418-23-WqR"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="trash2" width="150" id="gX0-Ce-AuG"/>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
@@ -110,7 +104,6 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Bi9-gT-tuX"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="deleteIcon" destination="gX0-Ce-AuG" id="GTy-4K-GBp"/>
                         <outlet property="downArrow" destination="uue-XS-i2V" id="gHG-be-E6o"/>
                         <outlet property="dropdownDeleteButton" destination="rAs-Yz-cSY" id="rCL-f4-rbm"/>
                         <outlet property="themeButton" destination="gbP-eP-FFI" id="Rl6-KP-XgR"/>
