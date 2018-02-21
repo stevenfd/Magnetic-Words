@@ -45,7 +45,7 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = themes[indexPath.row].getName()
         
         if(indexPath.row == selectedRow) {
-            cell.isSelected = true
+            self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
         }
 
         return cell
