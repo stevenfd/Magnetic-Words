@@ -218,18 +218,13 @@ class ViewController: UIViewController {
         let realDeleteRect = CGRect(x: dropdownDeleteButton.frame.minX, y: dropdownDeleteButton.frame.minY + wordHolder.frame.minY, width: dropdownDeleteButton.frame.size.width, height: dropdownDeleteButton.frame.size.height)
         
         //Check to see if the word is within the delete icon
-        //Since the UIBarButtons don't have frames, have to estimate
-        if(word.frame.maxX > view.frame.size.width * 0.74 && word.frame.maxY > toolBar.frame.minY || word.frame.intersects(realDeleteRect)) {
-            
+        if(word.frame.intersects(realDeleteRect)) {
             word.backgroundColor = UIColor.red
             
             if panGesture.state == UIGestureRecognizerState.ended {
                 UIView.animate(withDuration: 0.75, animations: { word.alpha = 0.0; }, completion: { (_: Bool) in word.removeFromSuperview(); })
             }
         } else {
-            //if panGesture.state == UIGestureRecognizerState.ended {
-            //    view.sendSubview(toBack: word)
-            //}
             word.backgroundColor = UIColor.white
         }
         
