@@ -43,6 +43,10 @@ class TableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = themes[indexPath.row].getName()
+        
+        if(indexPath.row == selectedRow) {
+            cell.isSelected = true
+        }
 
         return cell
     }

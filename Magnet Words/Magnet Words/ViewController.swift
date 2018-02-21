@@ -71,6 +71,7 @@ class ViewController: UIViewController {
             print("break here?")
             let themeVC = segue.destination.childViewControllers[0] as! TableViewController
             themeVC.themes = themeManager.getAllThemes()
+            themeVC.selectedRow = themeManager.getCurrentThemeIndex()
         }
     }
     
@@ -219,6 +220,9 @@ class ViewController: UIViewController {
                 UIView.animate(withDuration: 0.75, animations: { word.alpha = 0.0; }, completion: { (_: Bool) in word.removeFromSuperview(); })
             }
         } else {
+            if panGesture.state == UIGestureRecognizerState.ended {
+                view.sendSubview(toBack: word)
+            }
             word.backgroundColor = UIColor.white
         }
         
@@ -230,10 +234,6 @@ class ViewController: UIViewController {
             let difference = wordHolder.frame.minY
             word.frame = CGRect(x: word.frame.minX, y: word.frame.minY + difference, width: word.frame.width, height: word.frame.height)
             view.addSubview(word)
-        }
-    
-        if panGesture.state == UIGestureRecognizerState.ended {
-            view.sendSubview(toBack: word)
         }
     }
     
