@@ -6,10 +6,25 @@
 //  Copyright © 2018 Steven Domitrz. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Constants {
     struct PoemSettings {
         static let themeNameKey = "themeNameKey"
+    }
+    
+    struct ViewController {
+        static let rowsGenerated: CGFloat = 4
+        static let bottomAndSideBuffer: CGFloat = 16
+        
+        struct WordFontSize {
+            static let iPhone: CGFloat = 22
+            static let iPad: CGFloat = 26
+        }
+        
+        struct WordBuffer {
+            static let iPhone: CGFloat = 10
+            static let iPad: CGFloat = 14
+        }
     }
 }

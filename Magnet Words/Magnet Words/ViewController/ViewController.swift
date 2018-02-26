@@ -9,17 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let ROWS_GENERATED: CGFloat = 4
-    
-    //Buffer on the side of the application
-    let BOTTOM_BUFFER:CGFloat = 16
-    let SIDE_BUFFER:CGFloat = 16
-    
     //Buffer between words and rows
-    var wordBuffer:CGFloat = 14
+    var wordBuffer: CGFloat = 14
     
-    var wordFontSize: CGFloat = 25
+    var wordFontSize: CGFloat = 0
     var startingHeight: CGFloat = 0
     
     var poemSettingsBrain: PoemSettingsBrain?
@@ -39,11 +32,11 @@ class ViewController: UIViewController {
         
         //Base the font size off of the device
         if (UIDevice.current.userInterfaceIdiom == .phone) {
-            wordFontSize = 22
-            wordBuffer = 10
+            wordFontSize = Constants.ViewController.WordFontSize.iPhone
+            wordBuffer = Constants.ViewController.WordBuffer.iPhone
         } else {
-            wordFontSize = 26
-            wordBuffer = 14
+            wordFontSize = Constants.ViewController.WordFontSize.iPad
+            wordBuffer = Constants.ViewController.WordBuffer.iPad
         }
         
         wordHolder.layer.borderWidth = 1.0
@@ -59,7 +52,7 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
         
         //Figure out the starting height for the words
-        startingHeight = wordHolder.frame.size.height - BOTTOM_BUFFER
+        startingHeight = wordHolder.frame.size.height - Constants.ViewController.bottomAndSideBuffer
         
         themeManager.setCurrentTheme(themeName: poemSettingsBrain?.getThemeName())
         themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
@@ -130,12 +123,12 @@ class ViewController: UIViewController {
     
     //Function to place new words on the screen
     func placeNewWords(startingHeight: CGFloat) {
-        let furthestScreenDistanceX = view.frame.size.width - (SIDE_BUFFER * 2)
+        let furthestScreenDistanceX = view.frame.size.width - (Constants.ViewController.bottomAndSideBuffer * 2)
         
         var row:CGFloat = 1
         var furthestLabelX:CGFloat = 0
         
-        while (row <= ROWS_GENERATED) {
+        while (row <= Constants.ViewController.rowsGenerated) {
             //Get a random word from the list of words
             //TODO: Prevent duplicates? Maybe not as big a deal with lots of words?
             let currentWords = themeManager.getCurrentTheme().getWords()
@@ -150,13 +143,13 @@ class ViewController: UIViewController {
                 furthestLabelX = 0
                 
                 //Break out if we're onto too many rows
-                if(row == ROWS_GENERATED + 1) {
+                if(row == Constants.ViewController.rowsGenerated + 1) {
                     continue
                 }
             }
             
             //Now that we're on the right row, place the label
-            let x = SIDE_BUFFER + wordBuffer + furthestLabelX + (word.frame.width / 2)
+            let x = Constants.ViewController.bottomAndSideBuffer + wordBuffer + furthestLabelX + (word.frame.width / 2)
             furthestLabelX += word.frame.width + wordBuffer //Update the furthest X
             let y = startingHeight - (row - 1) * (wordBuffer + word.frame.height) - (word.frame.height / 2)
             
