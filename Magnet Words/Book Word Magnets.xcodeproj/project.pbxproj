@@ -104,16 +104,32 @@
 			children = (
 				3F3ABC4A202CE38800A9AFED /* AppDelegate.swift */,
 				3F04D56F203B9DFC00E41E32 /* BaseController.swift */,
-				3F3ABC4C202CE38800A9AFED /* ViewController.swift */,
-				3F29B53120375613002E34B1 /* TableViewController.swift */,
+				3FDD006620448834003C200D /* ViewController */,
+				3FDD006720448841003C200D /* Model */,
 				3F3ABC4E202CE38800A9AFED /* Main.storyboard */,
 				3F3ABC51202CE38800A9AFED /* Assets.xcassets */,
 				3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */,
 				3F3ABC56202CE38800A9AFED /* Info.plist */,
+			);
+			path = "Magnet Words";
+			sourceTree = "<group>";
+		};
+		3FDD006620448834003C200D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F3ABC4C202CE38800A9AFED /* ViewController.swift */,
+				3F29B53120375613002E34B1 /* TableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3FDD006720448841003C200D /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				3F04D557203B912A00E41E32 /* Theme.swift */,
 				3F04D56A203B957200E41E32 /* ThemeManager.swift */,
 			);
-			path = "Magnet Words";
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
