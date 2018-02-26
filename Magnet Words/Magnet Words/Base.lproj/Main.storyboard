@@ -145,7 +145,7 @@
                                 <action selector="cancelTapped:" destination="RX7-U8-mib" id="ww6-Lq-Vtj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="gIG-bs-BUE">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="gIG-bs-BUE">
                             <connections>
                                 <segue destination="fsY-Ph-749" kind="unwind" unwindAction="unwindToMainWithSegue:" id="7eb-Sp-to6"/>
                             </connections>
