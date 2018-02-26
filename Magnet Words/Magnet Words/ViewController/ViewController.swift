@@ -8,21 +8,19 @@
 
 import UIKit
 
-let ROWS_GENERATED: CGFloat = 4
-
-//Buffer on the side of the application
-let BOTTOM_BUFFER:CGFloat = 16
-let SIDE_BUFFER:CGFloat = 16
-//Buffer between words and rows
-var wordBuffer:CGFloat = 14
-
-var wordFontSize: CGFloat = 25
-var startingHeight: CGFloat = 0
-
-//TODO: Load this in through a file?
-let words = ["could","cloud","bot","bit","ask","a","geek","flame","file","ed","create","like","lap","is","ing","I","her","drive","get","soft","screen","protect","online","meme","to","they","that","tech","space","source","y","write","while"]
-
 class ViewController: UIViewController {
+    
+    let ROWS_GENERATED: CGFloat = 4
+    
+    //Buffer on the side of the application
+    let BOTTOM_BUFFER:CGFloat = 16
+    let SIDE_BUFFER:CGFloat = 16
+    
+    //Buffer between words and rows
+    var wordBuffer:CGFloat = 14
+    
+    var wordFontSize: CGFloat = 25
+    var startingHeight: CGFloat = 0
 
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var wordHolder: UIView!
