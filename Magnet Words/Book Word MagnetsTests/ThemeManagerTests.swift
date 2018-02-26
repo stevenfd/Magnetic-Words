@@ -69,6 +69,24 @@ class ThemeManagerTests: XCTestCase {
         
         XCTAssertEqual(manager.getCurrentThemeIndex(), 1)
     }
+    
+    func testSetCurrentThemeNilString() {
+        manager.setCurrentTheme(themeName: nil)
+        
+        XCTAssertEqual(manager.getCurrentThemeIndex(), 0)
+    }
+    
+    func testSetCurrentThemeBadString() {
+        manager.setCurrentTheme(themeName: "No Theme With This Name")
+        
+        XCTAssertEqual(manager.getCurrentThemeIndex(), 0)
+    }
+    
+    func testSetCurrentThemeWithValidName() {
+        manager.setCurrentTheme(themeName: "Inheritance")
+        
+        XCTAssertEqual(manager.getCurrentThemeIndex(), 1)
+    }
 }
 
 

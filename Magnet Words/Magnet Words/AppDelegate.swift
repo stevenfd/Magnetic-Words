@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Property dependency injection
+        if let viewController = window?.rootViewController as? ViewController {
+            //Protocol to conform to would make this easier/more abstracted
+            let poemSettingsBrain = PoemSettingsBrain()
+            viewController.poemSettingsBrain = poemSettingsBrain
+        }
+        
         return true
     }
 

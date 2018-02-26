@@ -11,7 +11,7 @@ import Foundation
 class PoemSettingsBrain {
     private var dataModel: PoemSettingsModel
     
-    private var themeName: String {
+    private var themeName: String? {
         get {
             return dataModel.themeName
         }
@@ -20,12 +20,16 @@ class PoemSettingsBrain {
         }
     }
     
-    init(dataModel: PoemSettingsModel) {
+    init(dataModel: PoemSettingsModel = PoemSettingsModelUserDefaults()) {
         self.dataModel = dataModel
     }
     
     func setThemeName(themeName: String) {
         self.themeName = themeName
         dataModel.save()
+    }
+    
+    func getThemeName() -> String? {
+        return themeName
     }
 }

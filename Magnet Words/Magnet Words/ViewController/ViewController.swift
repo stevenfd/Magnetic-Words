@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     var wordFontSize: CGFloat = 25
     var startingHeight: CGFloat = 0
+    
+    var poemSettingsBrain: PoemSettingsBrain?
 
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var wordHolder: UIView!
@@ -59,6 +61,7 @@ class ViewController: UIViewController {
         //Figure out the starting height for the words
         startingHeight = wordHolder.frame.size.height - BOTTOM_BUFFER
         
+        themeManager.setCurrentTheme(themeName: poemSettingsBrain?.getThemeName())
         themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
         placeNewWords(startingHeight: startingHeight)
     }
@@ -75,7 +78,10 @@ class ViewController: UIViewController {
     @IBAction func unwindToMain(segue: UIStoryboardSegue) {
         let themeVC = segue.source as! TableViewController
         let newIndex = themeVC.selectedRow
+        
         themeManager.setCurrentThemeIndex(newIndex: newIndex)
+        poemSettingsBrain?.setThemeName(themeName: themeManager.getCurrentTheme().getName())
+        
         themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
         
         newWords(self)

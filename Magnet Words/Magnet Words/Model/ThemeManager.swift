@@ -31,6 +31,21 @@ public class ThemeManager {
         }
     }
     
+    func setCurrentTheme(themeName: String?) {
+        if themeName == nil {
+            return
+        }
+        
+        var i = 0
+        for theme in themes {
+            if(theme.getName() == themeName) {
+               setCurrentThemeIndex(newIndex: i)
+                break
+            }
+            i += 1
+        }
+    }
+    
     func getCurrentTheme() -> Theme {
         if(currentThemeIndex >= 0) {
             return themes[currentThemeIndex]

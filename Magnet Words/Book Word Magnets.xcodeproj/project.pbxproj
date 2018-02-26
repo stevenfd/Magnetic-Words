@@ -21,7 +21,7 @@
 		3F3ABC50202CE38800A9AFED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3ABC4E202CE38800A9AFED /* Main.storyboard */; };
 		3F3ABC52202CE38800A9AFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3ABC51202CE38800A9AFED /* Assets.xcassets */; };
 		3F3ABC55202CE38800A9AFED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */; };
-		3F6F333F2044983700CE3A96 /* PoemSettingsUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F333E2044983700CE3A96 /* PoemSettingsUserDefaults.swift */; };
+		3F6F333F2044983700CE3A96 /* PoemSettingsModelUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F333E2044983700CE3A96 /* PoemSettingsModelUserDefaults.swift */; };
 		3F6F33412044988800CE3A96 /* PoemSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F33402044988800CE3A96 /* PoemSettingsModel.swift */; };
 		3F6F334320449AE600CE3A96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F334220449AE600CE3A96 /* Constants.swift */; };
 		3F6F334520449B5400CE3A96 /* PoemSettingsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F334420449B5400CE3A96 /* PoemSettingsBrain.swift */; };
@@ -54,7 +54,7 @@
 		3F3ABC51202CE38800A9AFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F3ABC54202CE38800A9AFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F3ABC56202CE38800A9AFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F6F333E2044983700CE3A96 /* PoemSettingsUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemSettingsUserDefaults.swift; sourceTree = "<group>"; };
+		3F6F333E2044983700CE3A96 /* PoemSettingsModelUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemSettingsModelUserDefaults.swift; sourceTree = "<group>"; };
 		3F6F33402044988800CE3A96 /* PoemSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemSettingsModel.swift; sourceTree = "<group>"; };
 		3F6F334220449AE600CE3A96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F6F334420449B5400CE3A96 /* PoemSettingsBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemSettingsBrain.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 				3F04D557203B912A00E41E32 /* Theme.swift */,
 				3F04D56A203B957200E41E32 /* ThemeManager.swift */,
 				3F6F334420449B5400CE3A96 /* PoemSettingsBrain.swift */,
-				3F6F333E2044983700CE3A96 /* PoemSettingsUserDefaults.swift */,
+				3F6F333E2044983700CE3A96 /* PoemSettingsModelUserDefaults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 				3F3ABC4D202CE38800A9AFED /* ViewController.swift in Sources */,
 				3F6F33412044988800CE3A96 /* PoemSettingsModel.swift in Sources */,
 				3F04D558203B912A00E41E32 /* Theme.swift in Sources */,
-				3F6F333F2044983700CE3A96 /* PoemSettingsUserDefaults.swift in Sources */,
+				3F6F333F2044983700CE3A96 /* PoemSettingsModelUserDefaults.swift in Sources */,
 				3F6F334520449B5400CE3A96 /* PoemSettingsBrain.swift in Sources */,
 				3F04D56B203B957200E41E32 /* ThemeManager.swift in Sources */,
 				3F29B53220375613002E34B1 /* TableViewController.swift in Sources */,
