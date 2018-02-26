@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PoemSettingsUserDefaults : PoemSettingsModel {
+class PoemSettingsModelUserDefaults : PoemSettingsModel {
     let defaults: UserDefaults
     var themeName: String?
     
