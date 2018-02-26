@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Constants {
+    struct PoemSettings {
+        static let themeNameKey = "themeNameKey"
+    }
+}

@@ -8,19 +8,14 @@
 
 import Foundation
 
-struct Constants {
-    struct PoemSettings {
-        static let themeNameKey = "themeNameKey"
-    }
-}
-
-class PoemSettingsUserDefaults : PoemSettingsProtocol {
+class PoemSettingsUserDefaults : PoemSettingsModel {
     let defaults: UserDefaults
     var themeName: String?
     
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
-        self.themeName = nil
+        
+        load()
     }
     
     func save() {
