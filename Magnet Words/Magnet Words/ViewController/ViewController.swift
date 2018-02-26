@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //Buffer between words and rows
     var wordBuffer: CGFloat = 14
     
     var wordFontSize: CGFloat = 0
     var startingHeight: CGFloat = 0
+    
+    var backgroundImage: UIImage?
     
     var poemSettingsBrain: PoemSettingsBrain?
 
@@ -98,6 +100,25 @@ class ViewController: UIViewController {
         activityVC.excludedActivityTypes = [UIActivityType.print]
         
         self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func setBackgroundImage(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image: UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        backgroundImage = image
+        (self.view as! UIImageView).contentMode = .center
+        (self.view as! UIImageView).image = backgroundImage
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     //Function to add a word when clicking the add button
