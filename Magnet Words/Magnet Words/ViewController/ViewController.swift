@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //MARK - ivars -
+    
     //Buffer between words and rows
     var wordBuffer: CGFloat = 14
     
@@ -19,6 +21,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var poemSettingsBrain: PoemSettingsBrain?
 
+    
+    //MARK - Outlets -
+    
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var wordHolder: UIView!
     @IBOutlet weak var downArrow: UIButton!
@@ -44,16 +49,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             wordHolderHeightConstraint.constant = Constants.ViewController.WorldHolderHeight.iPad
         }
         
+        //Add a border to the wordHolder
         wordHolder.layer.borderWidth = 1.0
         wordHolder.layer.borderColor = UIColor.black.cgColor
         
+        //Add border to draggable arrow, and set up its gestures
         downArrow.layer.borderWidth = 1.0
         downArrow.layer.borderColor = UIColor.black.cgColor
         downArrow.isUserInteractionEnabled = true
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragWordHolder))
         downArrow.addGestureRecognizer(panGesture)
         
-        //Same color as launch screen - baf0ff
+        //Set up background colors, same color as launch screen - baf0ff
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
         downArrow.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
         deleteButton.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
@@ -61,10 +68,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Figure out the starting height for the words
         startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
         
+        //Load the current theme and place some words
         themeManager.setCurrentTheme(themeName: poemSettingsBrain?.getThemeName())
         themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
         placeNewWords(startingHeight: startingHeight)
     }
+    
+    
+    //MARK - Segue Actions -
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showThemeSegue" {
@@ -87,12 +98,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         newWords(self)
     }
     
+    
+    //MARK - Storyboard Action Methods -
+    
     //Function to handle "refreshing" the list of words
     @IBAction func newWords(_ sender: Any) {
         removeOldWords(startingHeight: startingHeight)
         placeNewWords(startingHeight: startingHeight)
     }
     
+    //Method to share a screenshot
     @IBAction func shareScreenshot(_ sender: Any) {
         let image = self.view.takeSnapshot()
         let textToShare = "I used Book Word Poetry to create this word art!"
@@ -104,23 +119,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(activityVC, animated: true, completion: nil)
     }
     
+    //Method to allow the user to set a background image
     @IBAction func setBackgroundImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         self.present(imagePickerController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image: UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        backgroundImage = image
-        (self.view as! UIImageView).contentMode = .center
-        (self.view as! UIImageView).image = backgroundImage
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
     }
     
     //Function to add a word when clicking the add button
@@ -156,7 +160,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(addWordAlert, animated: true, completion: nil)
     }
     
-    //Private helper functions
+    
+    //MARK - Private Helper Methods - Creation and Deletion of Words
     
     //Function to place new words on the screen
     private func placeNewWords(startingHeight: CGFloat) {
@@ -195,6 +200,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    //Function to remove old words, now we can just remove all from the wordHolder
+    private func removeOldWords(startingHeight: CGFloat) {
+        for v in wordHolder.subviews{
+            if v is UILabel{
+                v.removeFromSuperview()
+            }
+        }
+    }
+    
     //Take in a word and create a UILabel with it
     private func createBaseUILabel(text: String) -> UILabel {
         let word = UILabel()
@@ -210,6 +224,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         return word
     }
+    
+    
+    //MARK - Gesture Recognizer Methods -
     
     //Method to allow the user to drag the word holder up and down
     @objc private func dragWordHolder(panGesture:UIPanGestureRecognizer) {
@@ -289,13 +306,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    //Function to remove old words, now we can just remove all from the wordHolder
-    private func removeOldWords(startingHeight: CGFloat) {
-        for v in wordHolder.subviews{
-            if v is UILabel{
-                v.removeFromSuperview()
-            }
-        }
+    
+    //MARK - UIImagePickerController Delegate Methods - For Picking of Backgroun Image
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image: UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        backgroundImage = image
+        (self.view as! UIImageView).contentMode = .center
+        (self.view as! UIImageView).image = backgroundImage
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
 }
