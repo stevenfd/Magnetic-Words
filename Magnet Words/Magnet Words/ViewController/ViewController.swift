@@ -86,6 +86,16 @@ class ViewController: UIViewController {
         placeNewWords(startingHeight: startingHeight)
     }
     
+    @IBAction func shareScreenshot(_ sender: Any) {
+        let textToShare = "I used Book Word Poetry to create this word art!"
+        let githubLink = NSURL(string: "https://github.com/stevenfd/Magnetic-Words")
+        let objectsToShare: [AnyObject] = [textToShare as AnyObject, githubLink!]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityVC.excludedActivityTypes = [UIActivityType.print]
+        
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
     //Function to add a word when clicking the add button
     /* Got help with this from https://www.simplifiedios.net/ios-dialog-box-with-input/ */
     @IBAction func addCustomWord(_ sender: Any) {
@@ -122,7 +132,7 @@ class ViewController: UIViewController {
     //Private helper functions
     
     //Function to place new words on the screen
-    func placeNewWords(startingHeight: CGFloat) {
+    private func placeNewWords(startingHeight: CGFloat) {
         let furthestScreenDistanceX = view.frame.size.width - (Constants.ViewController.bottomAndSideBuffer * 2)
         
         var row:CGFloat = 1
