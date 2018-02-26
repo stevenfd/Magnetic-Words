@@ -25,6 +25,7 @@
 		3F6F33412044988800CE3A96 /* PoemSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F33402044988800CE3A96 /* PoemSettingsModel.swift */; };
 		3F6F334320449AE600CE3A96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F334220449AE600CE3A96 /* Constants.swift */; };
 		3F6F334520449B5400CE3A96 /* PoemSettingsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F334420449B5400CE3A96 /* PoemSettingsBrain.swift */; };
+		3F94D8EE2044BF9300E3058D /* UIView+takeSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94D8ED2044BF9300E3058D /* UIView+takeSnapshot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		3F6F33402044988800CE3A96 /* PoemSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemSettingsModel.swift; sourceTree = "<group>"; };
 		3F6F334220449AE600CE3A96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F6F334420449B5400CE3A96 /* PoemSettingsBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemSettingsBrain.swift; sourceTree = "<group>"; };
+		3F94D8ED2044BF9300E3058D /* UIView+takeSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+takeSnapshot.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				3FDD006620448834003C200D /* ViewController */,
 				3FDD006720448841003C200D /* Model */,
 				3F6F334620449BD900CE3A96 /* Protocols */,
+				3F94D8EC2044BF6000E3058D /* Extensions */,
 				3F3ABC4E202CE38800A9AFED /* Main.storyboard */,
 				3F3ABC51202CE38800A9AFED /* Assets.xcassets */,
 				3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */,
@@ -130,6 +133,14 @@
 				3F6F33402044988800CE3A96 /* PoemSettingsModel.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3F94D8EC2044BF6000E3058D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F94D8ED2044BF9300E3058D /* UIView+takeSnapshot.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3FDD006620448834003C200D /* ViewController */ = {
@@ -273,6 +284,7 @@
 				3F04D558203B912A00E41E32 /* Theme.swift in Sources */,
 				3F6F333F2044983700CE3A96 /* PoemSettingsModelUserDefaults.swift in Sources */,
 				3F6F334520449B5400CE3A96 /* PoemSettingsBrain.swift in Sources */,
+				3F94D8EE2044BF9300E3058D /* UIView+takeSnapshot.swift in Sources */,
 				3F04D56B203B957200E41E32 /* ThemeManager.swift in Sources */,
 				3F29B53220375613002E34B1 /* TableViewController.swift in Sources */,
 				3F04D570203B9DFC00E41E32 /* BaseController.swift in Sources */,

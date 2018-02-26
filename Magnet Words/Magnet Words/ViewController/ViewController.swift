@@ -87,9 +87,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func shareScreenshot(_ sender: Any) {
+        let image = self.view.takeSnapshot()
         let textToShare = "I used Book Word Poetry to create this word art!"
         let githubLink = NSURL(string: "https://github.com/stevenfd/Magnetic-Words")
-        let objectsToShare: [AnyObject] = [textToShare as AnyObject, githubLink!]
+        let objectsToShare: [AnyObject] = [textToShare as AnyObject, githubLink!, image!]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.excludedActivityTypes = [UIActivityType.print]
         
