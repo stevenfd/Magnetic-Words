@@ -209,6 +209,13 @@ class ViewController: UIViewController {
         
         view.bringSubview(toFront: word)
         
+        if(panGesture.state == UIGestureRecognizerState.began) {
+            deleteButton.isHidden = false
+            UIView.animate(withDuration: 0.5, animations: {
+                self.deleteButton.alpha = 1.0
+            })
+        }
+        
         let position = panGesture.location(in: word.superview)
         word.center = position
         
@@ -228,13 +235,21 @@ class ViewController: UIViewController {
         }
         
         //If this is the first time they moved it we need to switch views
-        if panGesture.state == UIGestureRecognizerState.ended && wordHolder.subviews.contains(word){
-            word.removeFromSuperview()
+        if panGesture.state == UIGestureRecognizerState.ended {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.deleteButton.alpha = 0
+            }, completion: { (_: Bool) in
+                self.deleteButton.isHidden = true
+            })
             
-            //Add the difference in height so it reappears
-            let difference = wordHolder.frame.minY
-            word.frame = CGRect(x: word.frame.minX, y: word.frame.minY + difference, width: word.frame.width, height: word.frame.height)
-            view.addSubview(word)
+            if wordHolder.subviews.contains(word) {
+                word.removeFromSuperview()
+                
+                //Add the difference in height so it reappears
+                let difference = wordHolder.frame.minY
+                word.frame = CGRect(x: word.frame.minX, y: word.frame.minY + difference, width: word.frame.width, height: word.frame.height)
+                view.addSubview(word)
+            }
         }
     }
     
