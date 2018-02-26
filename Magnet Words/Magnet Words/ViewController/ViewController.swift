@@ -104,7 +104,9 @@ class ViewController: UIViewController {
                 newLabel.alpha = 0.0
                 self.view.addSubview(newLabel)
                 
-                UIView.animate(withDuration: 0.4, animations: { newLabel.alpha = 1.0; }, completion: nil)
+                UIView.animate(withDuration: 0.4, animations: {
+                    newLabel.alpha = 1.0
+                }, completion: nil)
             }
         })
         
@@ -217,7 +219,11 @@ class ViewController: UIViewController {
             word.backgroundColor = UIColor.red
             
             if panGesture.state == UIGestureRecognizerState.ended {
-                UIView.animate(withDuration: 0.75, animations: { word.alpha = 0.0; }, completion: { (_: Bool) in word.removeFromSuperview(); })
+                UIView.animate(withDuration: 0.75, animations: {
+                    word.alpha = 0.0
+                }, completion: {
+                    (_: Bool) in word.removeFromSuperview()
+                })
             }
         } else {
             word.backgroundColor = UIColor.white
