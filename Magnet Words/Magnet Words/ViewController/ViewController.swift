@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var themeButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var wordHolderBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var wordHolderHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +35,11 @@ class ViewController: UIViewController {
         if (UIDevice.current.userInterfaceIdiom == .phone) {
             wordFontSize = Constants.ViewController.WordFontSize.iPhone
             wordBuffer = Constants.ViewController.WordBuffer.iPhone
+            wordHolderHeightConstraint.constant = Constants.ViewController.WorldHolderHeight.iPhone
         } else {
             wordFontSize = Constants.ViewController.WordFontSize.iPad
             wordBuffer = Constants.ViewController.WordBuffer.iPad
+            wordHolderHeightConstraint.constant = Constants.ViewController.WorldHolderHeight.iPad
         }
         
         wordHolder.layer.borderWidth = 1.0
@@ -52,7 +55,7 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
         
         //Figure out the starting height for the words
-        startingHeight = wordHolder.frame.size.height - Constants.ViewController.bottomAndSideBuffer
+        startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
         
         themeManager.setCurrentTheme(themeName: poemSettingsBrain?.getThemeName())
         themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)

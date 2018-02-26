@@ -118,6 +118,7 @@
                         <outlet property="toolBar" destination="bXj-yz-JNB" id="qrn-70-ReZ"/>
                         <outlet property="wordHolder" destination="snU-1w-p45" id="laP-c9-SHI"/>
                         <outlet property="wordHolderBottomConstraint" destination="TLe-aY-wko" id="8qv-lA-qiX"/>
+                        <outlet property="wordHolderHeightConstraint" destination="QLY-e0-6eL" id="VG8-du-7XF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

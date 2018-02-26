@@ -26,5 +26,10 @@ struct Constants {
             static let iPhone: CGFloat = 10
             static let iPad: CGFloat = 14
         }
+        
+        struct WorldHolderHeight {
+            static let iPhone: CGFloat = 192
+            static let iPad: CGFloat = 222
+        }
     }
 }
