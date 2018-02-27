@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
         
         //Load the current theme and place some words
-        themeManager.setCurrentTheme(themeName: poemSettingsBrain?.getThemeName())
+        themeManager.setCurrentTheme(themeName: poemSettingsBrain?.themeName)
         themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
         placeNewWords(startingHeight: startingHeight)
     }
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
             let newIndex = themeVC.selectedRow
             
             themeManager.setCurrentThemeIndex(newIndex: newIndex)
-            poemSettingsBrain?.setThemeName(themeName: themeManager.getCurrentTheme().getName())
+            poemSettingsBrain?.themeName = themeManager.getCurrentTheme().getName()
             
             themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
             

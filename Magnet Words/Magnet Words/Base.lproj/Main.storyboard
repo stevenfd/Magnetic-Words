@@ -94,7 +94,7 @@
                                     <barButtonItem image="settings" id="n65-4p-UJL">
                                         <connections>
                                             <action selector="importThemeWords:" destination="BYZ-38-t0r" id="XQY-iF-gdB"/>
-                                            <segue destination="Y4V-S8-WDU" kind="show" id="jS7-ZX-6mb"/>
+                                            <segue destination="Y4V-S8-WDU" kind="show" identifier="showSettingsSegue" id="jS7-ZX-6mb"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Trv-4q-lxM"/>

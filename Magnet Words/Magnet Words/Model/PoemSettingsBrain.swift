@@ -11,12 +11,50 @@ import Foundation
 class PoemSettingsBrain {
     private var dataModel: PoemSettingsModel
     
-    private var themeName: String? {
+    var themeName: String? {
         get {
             return dataModel.themeName
         }
         set {
             dataModel.themeName = newValue
+            dataModel.save()
+        }
+    }
+    
+    var redVal: Float {
+        get {
+            return dataModel.redVal
+        }
+        set {
+            dataModel.redVal = newValue
+            dataModel.save()
+        }
+    }
+    var greenVal: Float {
+        get {
+            return dataModel.greenVal
+        }
+        set {
+            dataModel.greenVal = newValue
+            dataModel.save()
+        }
+    }
+    var blueVal: Float {
+        get {
+            return dataModel.blueVal
+        }
+        set {
+            dataModel.blueVal = newValue
+            dataModel.save()
+        }
+    }
+    var imageName: String? {
+        get {
+            return dataModel.imageName
+        }
+        set {
+            dataModel.imageName = newValue
+            dataModel.save()
         }
     }
     
@@ -24,12 +62,4 @@ class PoemSettingsBrain {
         self.dataModel = dataModel
     }
     
-    func setThemeName(themeName: String) {
-        self.themeName = themeName
-        dataModel.save()
-    }
-    
-    func getThemeName() -> String? {
-        return themeName
-    }
 }

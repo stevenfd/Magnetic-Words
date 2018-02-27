@@ -11,6 +11,11 @@ import UIKit
 struct Constants {
     struct PoemSettings {
         static let themeNameKey = "themeNameKey"
+        
+        static let redValKey = "redValKey"
+        static let greenValKey = "greenValKey"
+        static let blueValKey = "blueValKey"
+        static let imageNameKey = "imageNameKey"
     }
     
     struct ViewController {
