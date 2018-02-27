@@ -6,14 +6,20 @@
 //  Copyright © 2018 Steven Domitrz. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class PoemSettingsModelUserDefaults : PoemSettingsModel {
     let defaults: UserDefaults
     var themeName: String?
+    var redVal: CGFloat
+    var greenVal: CGFloat
+    var blueVal: CGFloat
     
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
+        self.redVal = 0
+        self.greenVal = 0
+        self.blueVal = 0
         
         load()
     }

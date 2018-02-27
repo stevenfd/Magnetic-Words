@@ -100,7 +100,12 @@ class ViewController: UIViewController {
             
             newWords(self)
         } else if (segue.identifier == "SaveSettings") {
-            
+            let settingsVC = segue.source as! SettingsViewController
+            if settingsVC.backgroundImage != nil {
+                backgroundImage = settingsVC.backgroundImage
+                (self.view as! UIImageView).contentMode = .center
+                (self.view as! UIImageView).image = backgroundImage
+            }
         }
     }
     
