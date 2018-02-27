@@ -77,7 +77,33 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="MK5-eR-8Ds"/>
                                 </constraints>
-                                <items/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="n2t-dx-V5n"/>
+                                    <barButtonItem systemItem="camera" id="pts-fG-cSv">
+                                        <connections>
+                                            <action selector="setBackgroundImage:" destination="BYZ-38-t0r" id="4Sp-s9-pxo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="L2Z-NJ-RhI"/>
+                                    <barButtonItem systemItem="add" id="fl3-aF-1g7">
+                                        <connections>
+                                            <action selector="addCustomWord:" destination="BYZ-38-t0r" id="dF5-qv-a0L"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="haZ-gx-tcI"/>
+                                    <barButtonItem systemItem="action" id="jeX-nO-8op">
+                                        <connections>
+                                            <action selector="shareScreenshot:" destination="BYZ-38-t0r" id="fbL-ay-Zwy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Bze-ch-W7H"/>
+                                    <barButtonItem image="settings" id="n65-4p-UJL">
+                                        <connections>
+                                            <action selector="importThemeWords:" destination="BYZ-38-t0r" id="XQY-iF-gdB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Trv-4q-lxM"/>
+                                </items>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
@@ -178,6 +204,7 @@
     <resources>
         <image name="down-arrow2" width="467" height="300"/>
         <image name="refresh" width="97" height="97"/>
+        <image name="settings" width="25" height="25"/>
         <image name="trash2" width="1600" height="1600"/>
     </resources>
 </document>

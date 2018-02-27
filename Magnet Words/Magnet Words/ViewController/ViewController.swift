@@ -70,16 +70,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Figure out the starting height for the words
         startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
         
-        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
-        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(setBackgroundImage)))
-        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
-        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCustomWord)))
-        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
-        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareScreenshot)))
-        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
-        toolBar.items?.append(UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: nil, action: nil))
-        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
-        
         //Load the current theme and place some words
         themeManager.setCurrentTheme(themeName: poemSettingsBrain?.getThemeName())
         themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
@@ -119,11 +109,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         placeNewWords(startingHeight: startingHeight)
     }
     
-    
-    //MARK - TabBar Action Methods -
-    
     //Method to share a screenshot
-    @objc func shareScreenshot() {
+    @IBAction func shareScreenshot(_ sender: Any) {
         let image = self.view.takeSnapshot()
         let textToShare = "I used Book Word Poetry to create this word art!"
         let githubLink = NSURL(string: "https://github.com/stevenfd/Magnetic-Words")
@@ -135,7 +122,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     //Method to allow the user to set a background image
-    @objc func setBackgroundImage() {
+    @IBAction func setBackgroundImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
@@ -144,7 +131,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //Function to add a word when clicking the add button
     /* Got help with this from https://www.simplifiedios.net/ios-dialog-box-with-input/ */
-    @objc func addCustomWord() {
+    @IBAction func addCustomWord(_ sender: Any) {
         let addWordAlert = UIAlertController(title: "Custom Word", message: "Enter the word you would like to create", preferredStyle: .alert)
         
         let confirmAction = UIAlertAction(title: "Enter", style: .default, handler: { (_) in
@@ -173,10 +160,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         addWordAlert.addAction(cancelAction)
         
         self.present(addWordAlert, animated: true, completion: nil)
-    }
-    
-    @objc func importThemeWords() {
-        
     }
     
     
