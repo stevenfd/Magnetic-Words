@@ -81,10 +81,14 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showThemeSegue" {
-            print("break here?")
             let themeVC = segue.destination.childViewControllers[0] as! TableViewController
             themeVC.themes = themeManager.getAllThemes()
             themeVC.selectedRow = themeManager.getCurrentThemeIndex()
+        } else if segue.identifier == "showSettingsSegue" {
+            let settingsVC = segue.destination.childViewControllers[0] as! SettingsViewController
+            settingsVC.redVal = CGFloat((poemSettingsBrain?.redVal)!)
+            settingsVC.greenVal = CGFloat((poemSettingsBrain?.greenVal)!)
+            settingsVC.blueVal = CGFloat((poemSettingsBrain?.blueVal)!)
         }
     }
     
