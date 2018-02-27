@@ -31,6 +31,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var wordHolderBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var wordHolderHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var deleteButtonWidth: NSLayoutConstraint!
+    @IBOutlet weak var deleteButtonHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -274,7 +276,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //Check to see if the word is within the delete icon
         if(word.frame.intersects(deleteButton.frame)) {
-            word.backgroundColor = UIColor.red
+            if(word.backgroundColor != UIColor.red) {
+                word.backgroundColor = UIColor.red
+                
+                UIView.animate(withDuration: 0.75, animations: {
+                    self.deleteButtonWidth.constant = Constants.ViewController.DeleteButtonSize.width * 2
+                    self.deleteButtonHeight.constant = Constants.ViewController.DeleteButtonSize.height * 2
+                    self.view.layoutIfNeeded()
+                })
+            }
             
             if panGesture.state == UIGestureRecognizerState.ended {
                 UIView.animate(withDuration: 0.75, animations: {
@@ -284,7 +294,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 })
             }
         } else {
-            word.backgroundColor = UIColor.white
+            if(word.backgroundColor != UIColor.white) {
+                word.backgroundColor = UIColor.white
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.deleteButtonWidth.constant = Constants.ViewController.DeleteButtonSize.height
+                    self.deleteButtonHeight.constant = Constants.ViewController.DeleteButtonSize.width
+                    self.view.layoutIfNeeded()
+                })
+            }
         }
         
         //If this is the first time they moved it we need to switch views
@@ -293,6 +311,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.deleteButton.alpha = 0
             }, completion: { (_: Bool) in
                 self.deleteButton.isHidden = true
+                self.deleteButtonWidth.constant = Constants.ViewController.DeleteButtonSize.height
+                self.deleteButtonHeight.constant = Constants.ViewController.DeleteButtonSize.width
             })
             
             if wordHolder.subviews.contains(word) {

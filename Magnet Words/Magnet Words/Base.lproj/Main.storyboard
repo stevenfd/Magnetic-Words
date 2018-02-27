@@ -121,6 +121,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="deleteButton" destination="rAs-Yz-cSY" id="fip-bF-BOj"/>
+                        <outlet property="deleteButtonHeight" destination="bAH-Sg-MU3" id="i0z-RL-Mbj"/>
+                        <outlet property="deleteButtonWidth" destination="VIP-5P-e8k" id="tYf-QM-UNX"/>
                         <outlet property="downArrow" destination="uue-XS-i2V" id="gHG-be-E6o"/>
                         <outlet property="themeButton" destination="gbP-eP-FFI" id="Rl6-KP-XgR"/>
                         <outlet property="toolBar" destination="bXj-yz-JNB" id="qrn-70-ReZ"/>

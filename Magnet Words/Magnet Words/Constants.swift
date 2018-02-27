@@ -31,5 +31,10 @@ struct Constants {
             static let iPhone: CGFloat = 192
             static let iPad: CGFloat = 222
         }
+        
+        struct DeleteButtonSize {
+            static let width: CGFloat = 34
+            static let height: CGFloat = 31
+        }
     }
 }
