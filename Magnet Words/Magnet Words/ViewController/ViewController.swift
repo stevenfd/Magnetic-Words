@@ -89,15 +89,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindToMain(segue: UIStoryboardSegue) {
-        let themeVC = segue.source as! TableViewController
-        let newIndex = themeVC.selectedRow
-        
-        themeManager.setCurrentThemeIndex(newIndex: newIndex)
-        poemSettingsBrain?.setThemeName(themeName: themeManager.getCurrentTheme().getName())
-        
-        themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
-        
-        newWords(self)
+        if(segue.identifier == "SetTheme") {
+            let themeVC = segue.source as! TableViewController
+            let newIndex = themeVC.selectedRow
+            
+            themeManager.setCurrentThemeIndex(newIndex: newIndex)
+            poemSettingsBrain?.setThemeName(themeName: themeManager.getCurrentTheme().getName())
+            
+            themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
+            
+            newWords(self)
+        } else if (segue.identifier == "SaveSettings") {
+            
+        }
     }
     
     

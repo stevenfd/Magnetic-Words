@@ -167,7 +167,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="gIG-bs-BUE">
                             <connections>
-                                <segue destination="fsY-Ph-749" kind="unwind" unwindAction="unwindToMainWithSegue:" id="7eb-Sp-to6"/>
+                                <segue destination="fsY-Ph-749" kind="unwind" identifier="SetTheme" unwindAction="unwindToMainWithSegue:" id="7eb-Sp-to6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -303,6 +303,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Select Image"/>
+                                        <connections>
+                                            <action selector="setBackgroundImage:" destination="Efy-Eo-5wV" eventType="touchUpInside" id="lnQ-kL-WMa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.72941176470000002" green="0.94117647059999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -312,10 +315,20 @@
                         <viewLayoutGuide key="safeArea" id="ynH-Qc-0Yo"/>
                     </view>
                     <navigationItem key="navigationItem" id="rnE-aZ-hzU">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="7T8-Wg-Ngb"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7T8-Wg-Ngb">
+                            <connections>
+                                <segue destination="PAn-oz-3kB" kind="unwind" identifier="CancelSettings" unwindAction="unwindToMainWithSegue:" id="DwL-kX-q1K"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2Ws-d6-wcr">
+                            <connections>
+                                <segue destination="PAn-oz-3kB" kind="unwind" identifier="SaveSettings" unwindAction="unwindToMainWithSegue:" id="7WO-Ap-B5i"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NA6-BM-chx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PAn-oz-3kB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3152.8000000000002" y="813.64317841079469"/>
         </scene>

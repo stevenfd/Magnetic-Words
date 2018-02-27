@@ -121,8 +121,8 @@
 				3FDD006720448841003C200D /* Model */,
 				3F6F334620449BD900CE3A96 /* Protocols */,
 				3F94D8EC2044BF6000E3058D /* Extensions */,
-				3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */,
 				3F3ABC4E202CE38800A9AFED /* Main.storyboard */,
+				3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */,
 				3F3ABC51202CE38800A9AFED /* Assets.xcassets */,
 				3F3ABC56202CE38800A9AFED /* Info.plist */,
 			);
