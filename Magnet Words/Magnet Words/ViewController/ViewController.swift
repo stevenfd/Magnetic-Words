@@ -274,8 +274,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let position = panGesture.location(in: word.superview)
         word.center = position
         
+        //Figure out the real word location (only have to do this if we're in the subview)
+        var wordFrame = word.frame
+        if(wordHolder.contains(word)) {
+            wordFrame = view.convert(wordFrame, from: wordHolder)
+        }
+        
         //Check to see if the word is within the delete icon
-        if(word.frame.intersects(deleteButton.frame)) {
+        if(wordFrame.intersects(deleteButton.frame)) {
+            //Don't animate it more than once
             if(word.backgroundColor != UIColor.red) {
                 word.backgroundColor = UIColor.red
                 
@@ -294,6 +301,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 })
             }
         } else {
+            //Don't animate it more than once
             if(word.backgroundColor != UIColor.white) {
                 word.backgroundColor = UIColor.white
                 
@@ -327,7 +335,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    //MARK - UIImagePickerController Delegate Methods - For Picking of Backgroun Image
+    //MARK - UIImagePickerController Delegate Methods - For Picking of Background Image
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image: UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
