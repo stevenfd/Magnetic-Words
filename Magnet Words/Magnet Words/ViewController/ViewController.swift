@@ -77,6 +77,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
         toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareScreenshot)))
         toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
+        toolBar.items?.append(UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: nil, action: nil))
+        toolBar.items?.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
         
         //Load the current theme and place some words
         themeManager.setCurrentTheme(themeName: poemSettingsBrain?.getThemeName())
@@ -171,6 +173,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         addWordAlert.addAction(cancelAction)
         
         self.present(addWordAlert, animated: true, completion: nil)
+    }
+    
+    @objc func importThemeWords() {
+        
     }
     
     
