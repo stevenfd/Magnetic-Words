@@ -63,9 +63,10 @@ class ViewController: UIViewController {
         downArrow.addGestureRecognizer(panGesture)
         
         //Set up background colors, same color as launch screen - baf0ff
-        view.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
-        downArrow.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
-        deleteButton.backgroundColor = UIColor(red: 0.73, green: 0.94, blue: 1.0, alpha: 1.0)
+        let defaultColor = UIColor(red: CGFloat(Constants.DefaultBackgroundRGB.red), green: CGFloat(Constants.DefaultBackgroundRGB.green), blue: CGFloat(Constants.DefaultBackgroundRGB.blue), alpha: 1.0)
+        view.backgroundColor = defaultColor
+        downArrow.backgroundColor = defaultColor
+        deleteButton.backgroundColor = defaultColor
         
         //Figure out the starting height for the words
         startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
@@ -86,9 +87,9 @@ class ViewController: UIViewController {
             themeVC.selectedRow = themeManager.getCurrentThemeIndex()
         } else if segue.identifier == "showSettingsSegue" {
             let settingsVC = segue.destination.childViewControllers[0] as! SettingsViewController
-            settingsVC.redVal = CGFloat((poemSettingsBrain?.redVal)!)
-            settingsVC.greenVal = CGFloat((poemSettingsBrain?.greenVal)!)
-            settingsVC.blueVal = CGFloat((poemSettingsBrain?.blueVal)!)
+            settingsVC.redVal = (poemSettingsBrain?.redVal)!
+            settingsVC.greenVal = (poemSettingsBrain?.greenVal)!
+            settingsVC.blueVal = (poemSettingsBrain?.blueVal)!
         }
     }
     

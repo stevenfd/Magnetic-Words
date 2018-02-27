@@ -42,4 +42,10 @@ struct Constants {
             static let height: CGFloat = 31
         }
     }
+    
+    struct DefaultBackgroundRGB {
+        static let red: Float = 0.73
+        static let green: Float = 0.94
+        static let blue: Float = 1.0
+    }
 }

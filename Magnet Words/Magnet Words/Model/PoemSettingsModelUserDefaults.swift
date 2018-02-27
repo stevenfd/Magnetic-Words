@@ -22,9 +22,9 @@ class PoemSettingsModelUserDefaults : PoemSettingsModel {
         self.defaults = defaults
         self.themeName = nil
         
-        self.redVal = 0
-        self.greenVal = 0
-        self.blueVal = 0
+        self.redVal = Constants.DefaultBackgroundRGB.red
+        self.greenVal = Constants.DefaultBackgroundRGB.green
+        self.blueVal = Constants.DefaultBackgroundRGB.blue 
         self.imageName = nil
         
         load()
