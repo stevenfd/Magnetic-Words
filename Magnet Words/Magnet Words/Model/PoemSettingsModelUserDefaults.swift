@@ -32,6 +32,10 @@ class PoemSettingsModelUserDefaults : PoemSettingsModel {
     
     func save() {
         defaults.set(themeName, forKey: Constants.PoemSettings.themeNameKey)
+        defaults.set(redVal, forKey: Constants.PoemSettings.redValKey)
+        defaults.set(blueVal, forKey: Constants.PoemSettings.blueValKey)
+        defaults.set(greenVal, forKey: Constants.PoemSettings.greenValKey)
+        defaults.set(imageName, forKey: Constants.PoemSettings.imageNameKey)
     }
     
     func load() {
