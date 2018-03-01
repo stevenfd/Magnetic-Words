@@ -87,9 +87,10 @@ class ViewController: UIViewController {
             themeVC.selectedRow = themeManager.getCurrentThemeIndex()
         } else if segue.identifier == "showSettingsSegue" {
             let settingsVC = segue.destination.childViewControllers[0] as! SettingsViewController
-            settingsVC.redVal = (poemSettingsBrain?.redVal)!
-            settingsVC.greenVal = (poemSettingsBrain?.greenVal)!
-            settingsVC.blueVal = (poemSettingsBrain?.blueVal)!
+            settingsVC.redVal = poemSettingsBrain!.redVal
+            settingsVC.greenVal = poemSettingsBrain!.greenVal
+            settingsVC.blueVal = poemSettingsBrain!.blueVal
+            settingsVC.backgroundIsImage = poemSettingsBrain!.isBackgroundAnImage
         }
     }
     
@@ -109,13 +110,18 @@ class ViewController: UIViewController {
             poemSettingsBrain?.redVal = settingsVC.redVal
             poemSettingsBrain?.greenVal = settingsVC.greenVal
             poemSettingsBrain?.blueVal = settingsVC.blueVal
+            backgroundImage = settingsVC.backgroundImage
             
-            if settingsVC.backgroundImage != nil {
-                backgroundImage = settingsVC.backgroundImage
-                (self.view as! UIImageView).contentMode = .center
-                (self.view as! UIImageView).image = backgroundImage
+            poemSettingsBrain?.isBackgroundAnImage = settingsVC.backgroundIsImage
+            
+            if (poemSettingsBrain?.isBackgroundAnImage)! {
+                if settingsVC.backgroundImage != nil {
+                    (self.view as! UIImageView).contentMode = .center
+                    (self.view as! UIImageView).image = backgroundImage
+                }
             } else {
-                self.view.backgroundColor = UIColor(red: CGFloat((poemSettingsBrain?.redVal)!), green: CGFloat((poemSettingsBrain?.greenVal)!), blue: CGFloat((poemSettingsBrain?.blueVal)!), alpha: 1.0)
+                (self.view as! UIImageView).image = nil
+                self.view.backgroundColor = UIColor(red: CGFloat(poemSettingsBrain!.redVal), green: CGFloat(poemSettingsBrain!.greenVal), blue: CGFloat(poemSettingsBrain!.blueVal), alpha: 1.0)
             }
         }
     }

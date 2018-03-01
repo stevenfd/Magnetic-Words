@@ -37,7 +37,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         updateSliderColorValue()
         updateColorDisplayValue()
         
-        changeBackgroundType(colorSwitch)
+        colorSwitch.isOn = !backgroundIsImage
+        imageSwitch.isOn = backgroundIsImage
     }
     
     //Method to allow the user to set a background image

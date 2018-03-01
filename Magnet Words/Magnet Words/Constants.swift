@@ -16,6 +16,7 @@ struct Constants {
         static let greenValKey = "greenValKey"
         static let blueValKey = "blueValKey"
         static let imageNameKey = "imageNameKey"
+        static let backgroundTypeKey = "backgroundTypeKey"
     }
     
     struct ViewController {

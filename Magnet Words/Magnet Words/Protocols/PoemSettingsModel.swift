@@ -15,6 +15,7 @@ protocol PoemSettingsModel {
     var greenVal: Float {get set}
     var blueVal: Float {get set}
     var imageName: String? {get set}
+    var isBackgroundAnImage: Bool {get set}
     
     func save()
     func load()

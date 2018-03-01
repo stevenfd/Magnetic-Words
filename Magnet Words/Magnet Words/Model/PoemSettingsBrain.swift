@@ -57,6 +57,15 @@ class PoemSettingsBrain {
             dataModel.save()
         }
     }
+    var isBackgroundAnImage: Bool {
+        get {
+            return dataModel.isBackgroundAnImage
+        }
+        set {
+            dataModel.isBackgroundAnImage = newValue
+            dataModel.save()
+        }
+    }
     
     init(dataModel: PoemSettingsModel = PoemSettingsModelUserDefaults()) {
         self.dataModel = dataModel
