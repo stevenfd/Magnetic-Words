@@ -182,6 +182,18 @@ class ViewController: UIViewController {
         self.present(addWordAlert, animated: true, completion: nil)
     }
     
+    @IBAction func downArrowPress(_ sender: Any) {
+        let bottomBound = getWordHolderBottomBound()
+        let topBound = getWordHolderTopBound(bottomBound: bottomBound)
+        
+        //Decide whether to go up or down based off a certain threshold
+        let threshold = bottomBound - ((bottomBound - topBound) * 0.25)
+        if downArrow.center.y < threshold {
+            moveWordHolderToHeight(height: bottomBound, animationDuration: 0.75)
+        } else {
+            moveWordHolderToHeight(height: topBound, animationDuration: 0.75)
+        }
+    }
     
     //MARK - Private Helper Methods - Creation and Deletion of Words
     
@@ -258,11 +270,8 @@ class ViewController: UIViewController {
         view.bringSubview(toFront: toolBar)  //Also need to bring the toolbar to the front so its not hidden
         
         //Figure out the bounds
-        //Bottom bound is height of toolbar + half of the downArrow
-        let bottomBound = view.frame.height - toolBar.frame.height - (downArrow.frame.height / 2)
-        
-        //Top bound is bottom + wordHolder
-        let topBound = bottomBound - wordHolder.frame.height
+        let bottomBound = getWordHolderBottomBound()
+        let topBound = getWordHolderTopBound(bottomBound: bottomBound)
         
         var height = panGesture.location(in: view).y
         
@@ -273,9 +282,26 @@ class ViewController: UIViewController {
             height = bottomBound
         }
         
+        moveWordHolderToHeight(height: height, animationDuration: 0)
+    }
+    
+    private func moveWordHolderToHeight(height: CGFloat, animationDuration: Double) {
         let downArrowOriginal = downArrow.center.y
-        downArrow.center = CGPoint(x: wordHolder.center.x, y: height)
-        wordHolderBottomConstraint.constant += (downArrowOriginal - height)
+        UIView.animate(withDuration: animationDuration) {
+            self.downArrow.center = CGPoint(x: self.wordHolder.center.x, y: height)
+            self.wordHolderBottomConstraint.constant += (downArrowOriginal - height)
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    //Bottom bound is height of toolbar + half of the downArrow
+    private func getWordHolderBottomBound() -> CGFloat {
+        return view.frame.height - toolBar.frame.height - (downArrow.frame.height / 2)
+    }
+    
+    //Top bound is bottom + wordHolder
+    private func getWordHolderTopBound(bottomBound: CGFloat) -> CGFloat {
+        return bottomBound - wordHolder.frame.height
     }
     
     //Function to move the label where the user is dragging
