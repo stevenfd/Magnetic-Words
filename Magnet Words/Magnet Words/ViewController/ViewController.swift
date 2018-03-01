@@ -64,9 +64,11 @@ class ViewController: UIViewController {
         
         //Set up background colors, same color as launch screen - baf0ff
         let defaultColor = UIColor(red: CGFloat(Constants.DefaultBackgroundRGB.red), green: CGFloat(Constants.DefaultBackgroundRGB.green), blue: CGFloat(Constants.DefaultBackgroundRGB.blue), alpha: 1.0)
-        view.backgroundColor = defaultColor
         downArrow.backgroundColor = defaultColor
         deleteButton.backgroundColor = defaultColor
+        
+        let selectedColor = UIColor(red: CGFloat(poemSettingsBrain!.redVal), green: CGFloat(poemSettingsBrain!.greenVal), blue: CGFloat(poemSettingsBrain!.blueVal), alpha: 1.0)
+        view.backgroundColor = selectedColor
         
         //Figure out the starting height for the words
         startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
