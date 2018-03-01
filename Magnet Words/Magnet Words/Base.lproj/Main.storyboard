@@ -402,6 +402,7 @@
                         <outlet property="imageSwitch" destination="H7F-HD-XcN" id="8F1-nX-sca"/>
                         <outlet property="redSlider" destination="itS-a1-2fU" id="zRY-8M-TdE"/>
                         <outlet property="redText" destination="X1P-Vu-bhN" id="jLM-7O-mTD"/>
+                        <outlet property="selectImageButton" destination="mkn-RP-Zw6" id="NB6-l9-z6J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NA6-BM-chx" userLabel="First Responder" sceneMemberID="firstResponder"/>

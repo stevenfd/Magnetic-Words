@@ -26,6 +26,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var colorDisplay: UIView!
     @IBOutlet weak var imageSwitch: UISwitch!
     @IBOutlet weak var colorSwitch: UISwitch!
+    @IBOutlet weak var selectImageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +38,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         updateSliderColorValue()
         updateColorDisplayValue()
         
-        colorSwitch.isOn = !backgroundIsImage
-        imageSwitch.isOn = backgroundIsImage
+        updateBackgroundUI()
     }
     
     //Method to allow the user to set a background image
@@ -51,12 +51,25 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func changeBackgroundType(_ sender: Any) {
         if sender as? UISwitch == imageSwitch {
-            colorSwitch.setOn(!imageSwitch.isOn, animated: true)
+            backgroundIsImage = imageSwitch.isOn
         } else {
-            imageSwitch.setOn(!colorSwitch.isOn, animated: true)
+            backgroundIsImage = !colorSwitch.isOn
         }
         
-        backgroundIsImage = imageSwitch.isOn
+        updateBackgroundUI()
+    }
+    
+    private func updateBackgroundUI() {
+        imageSwitch.setOn(backgroundIsImage, animated: true)
+        colorSwitch.setOn(!backgroundIsImage, animated: true)
+        
+        selectImageButton.isEnabled = backgroundIsImage
+        redText.isEnabled = !backgroundIsImage
+        redSlider.isEnabled = !backgroundIsImage
+        greenText.isEnabled = !backgroundIsImage
+        greenSlider.isEnabled = !backgroundIsImage
+        blueText.isEnabled = !backgroundIsImage
+        blueSlider.isEnabled = !backgroundIsImage
     }
     
     
