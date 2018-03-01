@@ -109,19 +109,19 @@ class ViewController: UIViewController {
             newWords(self)
         } else if (segue.identifier == "SaveSettings") {
             let settingsVC = segue.source as! SettingsViewController
-            poemSettingsBrain?.redVal = settingsVC.redVal
-            poemSettingsBrain?.greenVal = settingsVC.greenVal
-            poemSettingsBrain?.blueVal = settingsVC.blueVal
-            backgroundImage = settingsVC.backgroundImage
             
             poemSettingsBrain?.isBackgroundAnImage = settingsVC.backgroundIsImage
             
             if (poemSettingsBrain?.isBackgroundAnImage)! {
                 if settingsVC.backgroundImage != nil {
+                    backgroundImage = settingsVC.backgroundImage
                     (self.view as! UIImageView).contentMode = .center
                     (self.view as! UIImageView).image = backgroundImage
                 }
             } else {
+                poemSettingsBrain?.redVal = settingsVC.redVal
+                poemSettingsBrain?.greenVal = settingsVC.greenVal
+                poemSettingsBrain?.blueVal = settingsVC.blueVal
                 (self.view as! UIImageView).image = nil
                 self.view.backgroundColor = UIColor(red: CGFloat(poemSettingsBrain!.redVal), green: CGFloat(poemSettingsBrain!.greenVal), blue: CGFloat(poemSettingsBrain!.blueVal), alpha: 1.0)
             }
