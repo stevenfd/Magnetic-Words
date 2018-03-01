@@ -139,7 +139,18 @@ class ViewController: UIViewController {
     
     //Method to share a screenshot
     @IBAction func shareScreenshot(_ sender: Any) {
-        let image = self.view.takeSnapshot()
+        //Get the size of the screen we want in the image
+        let screenShotSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height - toolBar.frame.size.height)
+        
+        //Hide the wordHolder/down arrow/delete button in the screenshot
+        wordHolder.isHidden = true
+        downArrow.isHidden = true
+        deleteButton.isHidden = true
+        let image = self.view.takeSnapshot(size: screenShotSize)
+        wordHolder.isHidden = false
+        downArrow.isHidden = false
+        deleteButton.isHidden = false
+        
         let textToShare = "I used Book Word Poetry to create this word art!"
         let githubLink = NSURL(string: "https://github.com/stevenfd/Magnetic-Words")
         let objectsToShare: [AnyObject] = [textToShare as AnyObject, githubLink!, image!]

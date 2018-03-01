@@ -9,8 +9,9 @@
 import UIKit
 
 extension UIView {
-    func takeSnapshot() -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+    func takeSnapshot(size: CGSize) -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         return image
