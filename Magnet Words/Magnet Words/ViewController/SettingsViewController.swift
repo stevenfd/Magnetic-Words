@@ -84,19 +84,58 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func actionColorChangeTextField(_ sender: Any) {
-        redVal = redSlider.value
-        greenVal = greenSlider.value
-        blueVal = blueSlider.value
+        var red = Int(redText.text!)
+        var green = Int(greenText.text!)
+        var blue = Int(blueText.text!)
         
+        red = validateRGBValue(val: red!)
+        green = validateRGBValue(val: green!)
+        blue = validateRGBValue(val: blue!)
+        
+        if red != nil {
+            redVal = intRBGtoFloat(val: red!)
+        } else {
+            
+        }
+        if green != nil {
+            greenVal = intRBGtoFloat(val: green!)
+        } else {
+            
+        }
+        if blue != nil {
+            blueVal = intRBGtoFloat(val: blue!)
+        } else {
+            
+        }
+        
+        updateTextColorValue()
         updateSliderColorValue()
         updateColorDisplayValue()
     }
     
+    private func validateRGBValue(val: Int?) -> Int? {
+        if val != nil {
+            var newVal: Int? = val
+            if(newVal! > 255) {
+                newVal = nil
+            } else if newVal! < 0 {
+                newVal = nil
+            }
+            return newVal
+        } else {
+            return val
+        }
+    }
+    
+    private func intRBGtoFloat(val: Int) -> Float {
+        return Float(val) / 255
+    }
+    
     //Functions
     func updateTextColorValue() {
-        redText.text = String(format: "%0.1f", redVal * 255)
-        greenText.text = String(format: "%0.1f", greenVal * 255)
-        blueText.text = String(format: "%0.1f", blueVal * 255)
+        redText.text = String(format: "%0.0f", redVal * 255)
+        greenText.text = String(format: "%0.0f", greenVal * 255)
+        blueText.text = String(format: "%0.0f", blueVal * 255)
     }
     
     func updateSliderColorValue() {
