@@ -95,17 +95,17 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         if red != nil {
             redVal = intRBGtoFloat(val: red!)
         } else {
-            
+            inValidRBGValuePopup()
         }
         if green != nil {
             greenVal = intRBGtoFloat(val: green!)
         } else {
-            
+            inValidRBGValuePopup()
         }
         if blue != nil {
             blueVal = intRBGtoFloat(val: blue!)
         } else {
-            
+            inValidRBGValuePopup()
         }
         
         updateTextColorValue()
@@ -125,6 +125,16 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         } else {
             return val
         }
+    }
+    
+    func inValidRBGValuePopup() {
+        let invalidValueAlert = UIAlertController(title: "Invalid Value", message: "RGB values entered must be between 0 and 255", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (_) in })
+        
+        invalidValueAlert.addAction(okAction)
+        
+        self.present(invalidValueAlert, animated: true, completion: nil)
     }
     
     private func intRBGtoFloat(val: Int) -> Float {
