@@ -15,6 +15,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     var greenVal: Float = 0
     var blueVal: Float = 0
     
+    var backgroundIsImage: Bool = false
+    
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var redText: UITextField!
     @IBOutlet weak var greenSlider: UISlider!
@@ -22,6 +24,9 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var blueSlider: UISlider!
     @IBOutlet weak var blueText: UITextField!
     @IBOutlet weak var colorDisplay: UIView!
+    @IBOutlet weak var imageSwitch: UISwitch!
+    @IBOutlet weak var colorSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +36,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         updateTextColorValue()
         updateSliderColorValue()
         updateColorDisplayValue()
+        
+        changeBackgroundType(colorSwitch)
     }
     
     //Method to allow the user to set a background image
@@ -40,6 +47,17 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         imagePickerController.allowsEditing = true
         self.present(imagePickerController, animated: true, completion: nil)
     }
+    
+    @IBAction func changeBackgroundType(_ sender: Any) {
+        if sender as? UISwitch == imageSwitch {
+            colorSwitch.setOn(!imageSwitch.isOn, animated: true)
+        } else {
+            imageSwitch.setOn(!colorSwitch.isOn, animated: true)
+        }
+        
+        backgroundIsImage = imageSwitch.isOn
+    }
+    
     
     //Actions
     @IBAction func actionColorChangeSlider(_ sender: Any) {

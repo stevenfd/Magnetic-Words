@@ -149,7 +149,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iI0-yB-Wtw" id="N0c-BE-wDl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -190,9 +190,15 @@
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7F-HD-XcN">
                                         <rect key="frame" x="16" y="44" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="changeBackgroundType:" destination="Efy-Eo-5wV" eventType="valueChanged" id="vaL-u8-fmx"/>
+                                        </connections>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wjE-3J-XSb">
                                         <rect key="frame" x="16" y="89" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="changeBackgroundType:" destination="Efy-Eo-5wV" eventType="valueChanged" id="ubM-SK-7TQ"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiy-Pw-fhM">
                                         <rect key="frame" x="16" y="8" width="105" height="24"/>
@@ -385,8 +391,10 @@
                         <outlet property="blueSlider" destination="UYV-b1-C58" id="R5B-sz-AaU"/>
                         <outlet property="blueText" destination="d16-IY-p4n" id="P69-CK-rgd"/>
                         <outlet property="colorDisplay" destination="EyC-Xp-B8t" id="eAU-us-OUx"/>
+                        <outlet property="colorSwitch" destination="wjE-3J-XSb" id="CtY-MD-ghi"/>
                         <outlet property="greenSlider" destination="OJt-Cp-7la" id="Kui-Jv-Rrm"/>
                         <outlet property="greenText" destination="vZb-Gr-rnL" id="VAL-KL-a11"/>
+                        <outlet property="imageSwitch" destination="H7F-HD-XcN" id="8F1-nX-sca"/>
                         <outlet property="redSlider" destination="itS-a1-2fU" id="zRY-8M-TdE"/>
                         <outlet property="redText" destination="X1P-Vu-bhN" id="jLM-7O-mTD"/>
                     </connections>
