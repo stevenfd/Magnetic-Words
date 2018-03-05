@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var imageSwitch: UISwitch!
     @IBOutlet weak var colorSwitch: UISwitch!
     @IBOutlet weak var selectImageButton: UIButton!
+    @IBOutlet weak var fontPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

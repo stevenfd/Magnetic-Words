@@ -57,6 +57,15 @@ class PoemSettingsBrain {
             dataModel.save()
         }
     }
+    var fontName: String? {
+        get {
+            return dataModel.fontName
+        }
+        set {
+            dataModel.fontName = newValue
+            dataModel.save()
+        }
+    }
     var isBackgroundAnImage: Bool {
         get {
             return dataModel.isBackgroundAnImage

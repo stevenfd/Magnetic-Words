@@ -27,6 +27,9 @@
 		3F6F334320449AE600CE3A96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F334220449AE600CE3A96 /* Constants.swift */; };
 		3F6F334520449B5400CE3A96 /* PoemSettingsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F334420449B5400CE3A96 /* PoemSettingsBrain.swift */; };
 		3F94D8EE2044BF9300E3058D /* UIView+takeSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94D8ED2044BF9300E3058D /* UIView+takeSnapshot.swift */; };
+		3FA01AFA204E0238006FDD59 /* HARRY_POTTER.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 3FA01AF7204E0238006FDD59 /* HARRY_POTTER.TTF */; };
+		3FA01AFB204E0238006FDD59 /* Inheritance.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FA01AF8204E0238006FDD59 /* Inheritance.ttf */; };
+		3FA01AFC204E0238006FDD59 /* Game of Thrones.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FA01AF9204E0238006FDD59 /* Game of Thrones.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		3F6F334220449AE600CE3A96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F6F334420449B5400CE3A96 /* PoemSettingsBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemSettingsBrain.swift; sourceTree = "<group>"; };
 		3F94D8ED2044BF9300E3058D /* UIView+takeSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+takeSnapshot.swift"; sourceTree = "<group>"; };
+		3FA01AF7204E0238006FDD59 /* HARRY_POTTER.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = HARRY_POTTER.TTF; path = ../../../Media/Fonts/HARRY_POTTER.TTF; sourceTree = "<group>"; };
+		3FA01AF8204E0238006FDD59 /* Inheritance.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Inheritance.ttf; path = ../../../Media/Fonts/Inheritance.ttf; sourceTree = "<group>"; };
+		3FA01AF9204E0238006FDD59 /* Game of Thrones.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Game of Thrones.ttf"; path = "../../../Media/Fonts/Game of Thrones.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 				3F3ABC4E202CE38800A9AFED /* Main.storyboard */,
 				3F3ABC53202CE38800A9AFED /* LaunchScreen.storyboard */,
 				3F3ABC51202CE38800A9AFED /* Assets.xcassets */,
+				3FA01AF6204E021D006FDD59 /* Fonts */,
 				3F3ABC56202CE38800A9AFED /* Info.plist */,
 			);
 			path = "Magnet Words";
@@ -143,6 +150,16 @@
 				3F94D8ED2044BF9300E3058D /* UIView+takeSnapshot.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3FA01AF6204E021D006FDD59 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3FA01AF9204E0238006FDD59 /* Game of Thrones.ttf */,
+				3FA01AF7204E0238006FDD59 /* HARRY_POTTER.TTF */,
+				3FA01AF8204E0238006FDD59 /* Inheritance.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		3FDD006620448834003C200D /* ViewController */ = {
@@ -257,9 +274,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA01AFB204E0238006FDD59 /* Inheritance.ttf in Resources */,
+				3FA01AFA204E0238006FDD59 /* HARRY_POTTER.TTF in Resources */,
 				3F3ABC55202CE38800A9AFED /* LaunchScreen.storyboard in Resources */,
 				3F3ABC52202CE38800A9AFED /* Assets.xcassets in Resources */,
 				3F3ABC50202CE38800A9AFED /* Main.storyboard in Resources */,
+				3FA01AFC204E0238006FDD59 /* Game of Thrones.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ struct Constants {
         static let greenValKey = "greenValKey"
         static let blueValKey = "blueValKey"
         static let imageNameKey = "imageNameKey"
+        static let fontNameKey = "fontNameKey"
         static let backgroundTypeKey = "backgroundTypeKey"
     }
     
@@ -42,6 +43,12 @@ struct Constants {
             static let width: CGFloat = 34
             static let height: CGFloat = 31
         }
+    }
+    
+    struct FontNames {
+        static let GameOfThrones = "Game of Thrones.ttf"
+        static let HarryPotter = "HARRY_POTTER.TTF"
+        static let Inheritance = "Inheritance.ttf"
     }
     
     struct DefaultBackgroundRGB {

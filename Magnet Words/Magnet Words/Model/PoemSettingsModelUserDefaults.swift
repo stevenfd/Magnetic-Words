@@ -16,6 +16,7 @@ class PoemSettingsModelUserDefaults : PoemSettingsModel {
     var greenVal: Float
     var blueVal: Float
     var imageName: String?
+    var fontName: String?
     var isBackgroundAnImage: Bool
     
     init(defaults: UserDefaults = .standard) {
@@ -27,6 +28,7 @@ class PoemSettingsModelUserDefaults : PoemSettingsModel {
         self.blueVal = Constants.DefaultBackgroundRGB.blue
         self.isBackgroundAnImage = false
         self.imageName = nil
+        self.fontName = nil
         
         load()
     }
@@ -37,6 +39,7 @@ class PoemSettingsModelUserDefaults : PoemSettingsModel {
         defaults.set(blueVal, forKey: Constants.PoemSettings.blueValKey)
         defaults.set(greenVal, forKey: Constants.PoemSettings.greenValKey)
         defaults.set(imageName, forKey: Constants.PoemSettings.imageNameKey)
+        defaults.set(fontName, forKey: Constants.PoemSettings.fontNameKey)
         defaults.set(isBackgroundAnImage, forKey: Constants.PoemSettings.backgroundTypeKey)
     }
     
@@ -56,6 +59,9 @@ class PoemSettingsModelUserDefaults : PoemSettingsModel {
         }
         if let imageName = defaults.value(forKey: Constants.PoemSettings.imageNameKey) as? String {
             self.imageName = imageName
+        }
+        if let fontName = defaults.value(forKey: Constants.PoemSettings.fontNameKey) as? String {
+            self.fontName = fontName
         }
         if let isBackgroundAnImage = defaults.value(forKey: Constants.PoemSettings.backgroundTypeKey) as? Bool {
             self.isBackgroundAnImage = isBackgroundAnImage
