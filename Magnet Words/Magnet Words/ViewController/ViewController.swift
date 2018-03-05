@@ -89,6 +89,13 @@ class ViewController: UIViewController {
             let themeVC = segue.destination.childViewControllers[0] as! TableViewController
             themeVC.themes = themeManager.getAllThemes()
             themeVC.selectedRow = themeManager.getCurrentThemeIndex()
+            //If ipad we need to set the anchor for the popup
+            if (UIDevice.current.userInterfaceIdiom == .pad) {
+                if((themeVC.popoverPresentationController) != nil) {
+                    print("Test this")
+                }
+                themeVC.popoverPresentationController?.sourceRect = themeButton.bounds
+            }
         } else if segue.identifier == "showSettingsSegue" {
             let settingsVC = segue.destination.childViewControllers[0] as! SettingsViewController
             settingsVC.redVal = poemSettingsBrain!.redVal
@@ -159,7 +166,7 @@ class ViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.excludedActivityTypes = [UIActivityType.print]
         
-        //check ipad
+        //If ipad we need to specify where it will open
         if (UIDevice.current.userInterfaceIdiom == .pad) {
             activityVC.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
         }

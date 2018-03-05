@@ -24,8 +24,8 @@ struct Constants {
         static let bottomAndSideBuffer: CGFloat = 16
         
         struct WordFontSize {
-            static let iPhone: CGFloat = 22
-            static let iPad: CGFloat = 26
+            static let iPhone: CGFloat = 24
+            static let iPad: CGFloat = 28
         }
         
         struct WordBuffer {
