@@ -44,12 +44,14 @@ class ViewController: UIViewController {
         if (UIDevice.current.userInterfaceIdiom == .phone) {
             wordFontSize = Constants.ViewController.WordFontSize.iPhone
             wordBuffer = Constants.ViewController.WordBuffer.iPhone
-            wordHolderHeightConstraint.constant = Constants.ViewController.WorldHolderHeight.iPhone
         } else {
             wordFontSize = Constants.ViewController.WordFontSize.iPad
             wordBuffer = Constants.ViewController.WordBuffer.iPad
-            wordHolderHeightConstraint.constant = Constants.ViewController.WorldHolderHeight.iPad
         }
+        
+        let sampleLabel = createBaseUILabel(text: "Sample Label");
+        let height = (sampleLabel.frame.height + wordBuffer) * 4 + Constants.ViewController.bottomAndSideBuffer * 3
+        wordHolderHeightConstraint.constant = height
         
         //Add a border to the wordHolder
         wordHolder.layer.borderWidth = 1.0
