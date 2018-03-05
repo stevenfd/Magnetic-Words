@@ -157,6 +157,11 @@ class ViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.excludedActivityTypes = [UIActivityType.print]
         
+        //check ipad
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            activityVC.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+        }
+        
         self.present(activityVC, animated: true, completion: nil)
     }
     
