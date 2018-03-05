@@ -46,9 +46,9 @@ struct Constants {
     }
     
     struct FontNames {
-        static let GameOfThrones = "Game of Thrones.ttf"
-        static let HarryPotter = "HARRY_POTTER.TTF"
-        static let Inheritance = "Inheritance.ttf"
+        static let GameOfThrones = "Game of Thrones"
+        static let HarryPotter = "Harry P"
+        static let Inheritance = "Inheritance Font"
     }
     
     struct DefaultBackgroundRGB {

@@ -271,7 +271,22 @@ class ViewController: UIViewController {
     private func createBaseUILabel(text: String) -> UILabel {
         let word = UILabel()
         word.backgroundColor = UIColor.white
-        word.font = UIFont(name: word.font.fontName, size: wordFontSize)
+        
+        var wordFontName = poemSettingsBrain.fontName
+        //Nil means we're using "multi" fonts, or theme defaults
+        if(wordFontName == nil) {
+            let themeFont = themeManager.getCurrentTheme().getFontName()
+            if(themeFont != nil) {
+                wordFontName = themeFont
+            } else {
+                wordFontName = word.font.fontName
+            }
+        }
+        
+        let wordFont = UIFont(name: wordFontName!, size: wordFontSize + 4)
+        word.font = UIFontMetrics.default.scaledFont(for: wordFont!)
+        word.adjustsFontForContentSizeCategory = true
+        
         word.text = " " + text + " " //Spaces are to make the label bigger TODO: better way to do this?
         word.sizeToFit()
         

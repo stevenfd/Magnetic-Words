@@ -19,13 +19,13 @@ class BaseController {
         themes.append(Theme(name: "Plain Words", words: words))
         
         words = ["Harry","Hargid","Ron","Voldemort","wand","magic","Hogwarts","flame","goblet","of","fire","owl","dark arts","alchemy","newt","muggle","wizard","Azkaban","stone","snitch","quidditch","polyjuice","patronus","house","Gryffindor","Hufflepuff","Ravenclaw","Slytherin","student","sort","hat","s","ing"]
-        themes.append(Theme(name: "Harry Potter", words: words))
+        themes.append(Theme(name: "Harry Potter", words: words, fontName: Constants.FontNames.HarryPotter))
         
         words = ["Eragon","dragon","fire","egg","dragon","rider","sword","bow","magic","elf","dwarf","human","s","siege","battle","castle","army","Durza","Brom","Brisingr","Arya","Oromis","spell","deyja","flauga","king","rider","Urgal","village","town","breathing","magic","explosion"]
-        themes.append(Theme(name: "Inheritance", words: words))
+        themes.append(Theme(name: "Inheritance", words: words, fontName: Constants.FontNames.Inheritance))
         
         words = ["Jon","Snow","Targaryen","Dothraki","direwolf","crow","north","wall","Faceless Men","grayscale","hand","throne","king","queen","khaleesi","maester","watch","night","winter","coming","Quarth","Unsullied","sellsword","wildlings","Yunkai","slave","fire","Lannister","Stark","Tarrwell","Dragonstone","King's Landing","Winterfell"]
-        themes.append(Theme(name: "Game of Thrones", words: words))
+        themes.append(Theme(name: "Game of Thrones", words: words, fontName: Constants.FontNames.GameOfThrones))
         
         themeManager = ThemeManager(currentThemeIndex: 0, themes: themes)
     }
