@@ -3,6 +3,10 @@ Steven Domitrz
 
 A highly customizable word magnets app for iOS, with different book themes.
 
+* [Checkpoint 1](#checkpoint-1)
+* [Checkpoint 2](#checkpoint-2)
+* [Checkpoint 3](#checkpoint-3)
+
 ## Features (Proposed)
 1. Every word is customizable (font, color, size, etc.)
 2. Lists of custom words can be imported easily
@@ -45,6 +49,35 @@ A highly customizable word magnets app for iOS, with different book themes.
 * Words can be deleted
 * Custom words can be added
 * Words are in a draggable view, to allow use of more of the screen
+
+
+### Screenshots
+
+* Main Screen
+
+![Main Screen](Media/Screenshots/Checkpoint2/generalScreen.png)
+
+* Theme Selection Screen
+
+![Theme Selection Screen](Media/Screenshots/Checkpoint2/themeSelection.png)
+
+* Custom Word Popup
+
+![Custom Word Popup](Media/Screenshots/Checkpoint2/customWord.png)
+
+
+## Checkpoint 3
+### Features Completed
+* Custom background image can be set
+* Current theme selected is saved
+* Custom background color can be set
+* Custom background color is saved
+* Custom font size can be set
+* Custom font size is saved
+* Words can be rotated
+* Screenshot of the art can be saved/shared
+* Improved delete animation/icon
+* Added animations to tapping of the down arrow
 
 
 ### Screenshots
