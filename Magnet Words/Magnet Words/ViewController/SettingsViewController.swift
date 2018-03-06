@@ -109,22 +109,22 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         var green = Int(greenText.text!)
         var blue = Int(blueText.text!)
         
-        red = validateRGBValue(val: red!)
-        green = validateRGBValue(val: green!)
-        blue = validateRGBValue(val: blue!)
+        red = validateRGBValue(val: red)
+        green = validateRGBValue(val: green)
+        blue = validateRGBValue(val: blue)
         
         if red != nil {
-            redVal = intRBGtoFloat(val: red!)
+            redVal = intRBGtoFloat(val: red)!
         } else {
             inValidRBGValuePopup()
         }
         if green != nil {
-            greenVal = intRBGtoFloat(val: green!)
+            greenVal = intRBGtoFloat(val: green)!
         } else {
             inValidRBGValuePopup()
         }
         if blue != nil {
-            blueVal = intRBGtoFloat(val: blue!)
+            blueVal = intRBGtoFloat(val: blue)!
         } else {
             inValidRBGValuePopup()
         }
@@ -205,8 +205,11 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     //MARK - Private Helper Function -
     
     //Get RBG value to a slider float value
-    private func intRBGtoFloat(val: Int) -> Float {
-        return Float(val) / 255
+    private func intRBGtoFloat(val: Int?) -> Float? {
+        if val == nil {
+            return nil
+        }
+        return Float(val!) / 255
     }
     
     //MARK - UIImagePickerController Delegate Methods - For Picking of Background Image
