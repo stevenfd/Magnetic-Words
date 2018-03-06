@@ -144,6 +144,7 @@ class ViewController: UIViewController {
                 for subView in self.view.subviews {
                     if let word = subView as? UILabel{
                         word.font = UIFont(name: word.font.fontName, size: CGFloat(self.poemSettingsBrain.fontSize))
+                        word.sizeToFit()
                     }
                 }
             }
