@@ -44,6 +44,17 @@ struct Constants {
         }
     }
     
+    struct FontSizeSlider {
+        struct iPhone {
+            static let minSize: CGFloat = 24
+            static let maxSize: CGFloat = 36
+        }
+        struct iPad {
+            static let minSize: CGFloat = 24
+            static let maxSize: CGFloat = 50
+        }
+    }
+    
     struct DefaultBackgroundRGB {
         static let red: Float = 0.73
         static let green: Float = 0.94
