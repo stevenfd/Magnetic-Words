@@ -20,12 +20,12 @@ struct Constants {
     }
     
     struct ViewController {
-        static let rowsGenerated: CGFloat = 4
+        static let rowsGenerated: CGFloat = 5
         static let bottomAndSideBuffer: CGFloat = 16
         
         struct WordFontSize {
-            static let iPhone: CGFloat = 24
-            static let iPad: CGFloat = 28
+            static let iPhone: CGFloat = 28
+            static let iPad: CGFloat = 32
         }
         
         struct WordBuffer {

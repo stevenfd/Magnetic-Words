@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         }
         
         let sampleLabel = createBaseUILabel(text: "Sample Label");
-        let height = (sampleLabel.frame.height + wordBuffer) * 4 + Constants.ViewController.bottomAndSideBuffer * 3
+        let height = (sampleLabel.frame.height + wordBuffer) * Constants.ViewController.rowsGenerated + Constants.ViewController.bottomAndSideBuffer * 3
         wordHolderHeightConstraint.constant = height
         
         //Add a border to the wordHolder
@@ -206,7 +206,10 @@ class ViewController: UIViewController {
         self.present(addWordAlert, animated: true, completion: nil)
     }
     
+    //Function to move the word holder up or down on press of the word holder down arrow
     @IBAction func downArrowPress(_ sender: Any) {
+        bringWordHolderToFront()
+        
         let bottomBound = getWordHolderBottomBound()
         let topBound = getWordHolderTopBound(bottomBound: bottomBound)
         
@@ -278,7 +281,9 @@ class ViewController: UIViewController {
         //Finally make them draggable
         word.isUserInteractionEnabled = true
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragWord))
+        let rotateGesure = UIRotationGestureRecognizer(target: self, action: #selector(rotateWord))
         word.addGestureRecognizer(panGesture)
+        word.addGestureRecognizer(rotateGesure)
         
         return word
     }
@@ -288,10 +293,9 @@ class ViewController: UIViewController {
     
     //Method to allow the user to drag the word holder up and down
     @objc private func dragWordHolder(panGesture:UIPanGestureRecognizer) {
-        //Whenever the word holder is dragged, bring it to the front
-        view.bringSubview(toFront: wordHolder)
-        view.bringSubview(toFront: downArrow)
-        view.bringSubview(toFront: toolBar)  //Also need to bring the toolbar to the front so its not hidden
+        if panGesture.state == .began {
+            bringWordHolderToFront()
+        }
         
         //Figure out the bounds
         let bottomBound = getWordHolderBottomBound()
@@ -318,6 +322,13 @@ class ViewController: UIViewController {
         }
     }
     
+    //Bring the word holder to the front of the screen, user on enter to drag and tap
+    private func bringWordHolderToFront() {
+        view.bringSubview(toFront: wordHolder)
+        view.bringSubview(toFront: downArrow)
+        view.bringSubview(toFront: toolBar)  //Also need to bring the toolbar to the front so its not hidden
+    }
+    
     //Bottom bound is height of toolbar + half of the downArrow
     private func getWordHolderBottomBound() -> CGFloat {
         return view.frame.height - toolBar.frame.height - (downArrow.frame.height / 2)
@@ -326,6 +337,17 @@ class ViewController: UIViewController {
     //Top bound is bottom + wordHolder
     private func getWordHolderTopBound(bottomBound: CGFloat) -> CGFloat {
         return bottomBound - wordHolder.frame.height
+    }
+    
+    //Got help from this from: https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/handling_uikit_gestures/handling_rotation_gestures
+    @objc private func rotateWord(rotateGesture: UIRotationGestureRecognizer) {
+        // user's two fingers. This creates a more natural looking rotation.
+        guard rotateGesture.view != nil else { return }
+        
+        if rotateGesture.state == .began || rotateGesture.state == .changed {
+            rotateGesture.view?.transform = rotateGesture.view!.transform.rotated(by: rotateGesture.rotation)
+            rotateGesture.rotation = 0
+        }
     }
     
     //Function to move the label where the user is dragging
