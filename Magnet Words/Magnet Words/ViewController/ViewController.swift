@@ -140,6 +140,12 @@ class ViewController: UIViewController {
                 poemSettingsBrain.fontSize = settingsVC.fontSize
                 updateWordHolderHeight()
                 newWords(self)
+                
+                for subView in self.view.subviews {
+                    if let word = subView as? UILabel{
+                        word.font = UIFont(name: word.font.fontName, size: CGFloat(self.poemSettingsBrain.fontSize))
+                    }
+                }
             }
         }
     }
