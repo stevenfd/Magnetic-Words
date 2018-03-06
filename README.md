@@ -68,11 +68,16 @@ A highly customizable word magnets app for iOS, with different book themes.
 
 ## Checkpoint 3
 ### Features Completed
-* User can choose between sets of words
-* Words on screen can be replaced with new ones
-* Words can be deleted
-* Custom words can be added
-* Words are in a draggable view, to allow use of more of the screen
+* Custom background image can be set
+* Current theme selected is saved
+* Custom background color can be set
+* Custom background color is saved
+* Custom font size can be set
+* Custom font size is saved
+* Words can be rotated
+* Screenshot of the art can be saved/shared
+* Improved delete animation/icon
+* Added animations to tapping of the down arrow
 
 
 ### Screenshots
