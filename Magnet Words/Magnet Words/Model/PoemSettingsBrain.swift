@@ -66,6 +66,15 @@ class PoemSettingsBrain {
             dataModel.save()
         }
     }
+    var fontSize: Int {
+        get {
+            return dataModel.fontSize
+        }
+        set {
+            dataModel.fontSize = newValue
+            dataModel.save()
+        }
+    }
     
     init(dataModel: PoemSettingsModel = PoemSettingsModelUserDefaults()) {
         self.dataModel = dataModel

@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     var backgroundImage: UIImage?
     
-    var poemSettingsBrain: PoemSettingsBrain?
+    var poemSettingsBrain: PoemSettingsBrain!
 
     
     //MARK - Outlets -
@@ -42,11 +42,19 @@ class ViewController: UIViewController {
         
         //Base the font size off of the device
         if (UIDevice.current.userInterfaceIdiom == .phone) {
-            wordFontSize = Constants.ViewController.WordFontSize.iPhone
+            if poemSettingsBrain.fontSize == -1 {
+                wordFontSize = Constants.FontSizeSlider.defaultSize.iPhone
+            }
             wordBuffer = Constants.ViewController.WordBuffer.iPhone
         } else {
-            wordFontSize = Constants.ViewController.WordFontSize.iPad
+            if poemSettingsBrain.fontSize == -1 {
+                wordFontSize = Constants.FontSizeSlider.defaultSize.iPhone
+            }
             wordBuffer = Constants.ViewController.WordBuffer.iPad
+        }
+        
+        if poemSettingsBrain.fontSize != -1 {
+            wordFontSize = CGFloat(poemSettingsBrain.fontSize)
         }
         
         let sampleLabel = createBaseUILabel(text: "Sample Label");
@@ -68,14 +76,14 @@ class ViewController: UIViewController {
         let defaultColor = UIColor(red: CGFloat(Constants.DefaultBackgroundRGB.red), green: CGFloat(Constants.DefaultBackgroundRGB.green), blue: CGFloat(Constants.DefaultBackgroundRGB.blue), alpha: 1.0)
         downArrow.backgroundColor = defaultColor
         
-        let selectedColor = UIColor(red: CGFloat(poemSettingsBrain!.redVal), green: CGFloat(poemSettingsBrain!.greenVal), blue: CGFloat(poemSettingsBrain!.blueVal), alpha: 1.0)
+        let selectedColor = UIColor(red: CGFloat(poemSettingsBrain.redVal), green: CGFloat(poemSettingsBrain.greenVal), blue: CGFloat(poemSettingsBrain.blueVal), alpha: 1.0)
         view.backgroundColor = selectedColor
         
         //Figure out the starting height for the words
         startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
         
         //Load the current theme and place some words
-        themeManager.setCurrentTheme(themeName: poemSettingsBrain?.themeName)
+        themeManager.setCurrentTheme(themeName: poemSettingsBrain.themeName)
         themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
         placeNewWords(startingHeight: startingHeight)
     }
@@ -97,10 +105,10 @@ class ViewController: UIViewController {
             }
         } else if segue.identifier == "showSettingsSegue" {
             let settingsVC = segue.destination.childViewControllers[0] as! SettingsViewController
-            settingsVC.redVal = poemSettingsBrain!.redVal
-            settingsVC.greenVal = poemSettingsBrain!.greenVal
-            settingsVC.blueVal = poemSettingsBrain!.blueVal
-            settingsVC.backgroundIsImage = poemSettingsBrain!.isBackgroundAnImage
+            settingsVC.redVal = poemSettingsBrain.redVal
+            settingsVC.greenVal = poemSettingsBrain.greenVal
+            settingsVC.blueVal = poemSettingsBrain.blueVal
+            settingsVC.backgroundIsImage = poemSettingsBrain.isBackgroundAnImage
         }
     }
     
@@ -110,7 +118,7 @@ class ViewController: UIViewController {
             let newIndex = themeVC.selectedRow
             
             themeManager.setCurrentThemeIndex(newIndex: newIndex)
-            poemSettingsBrain?.themeName = themeManager.getCurrentTheme().getName()
+            poemSettingsBrain.themeName = themeManager.getCurrentTheme().getName()
             
             themeButton.setTitle(themeManager.getCurrentTheme().getName(), for: .normal)
             
@@ -120,18 +128,18 @@ class ViewController: UIViewController {
             
             poemSettingsBrain?.isBackgroundAnImage = settingsVC.backgroundIsImage
             
-            if (poemSettingsBrain?.isBackgroundAnImage)! {
+            if poemSettingsBrain.isBackgroundAnImage {
                 if settingsVC.backgroundImage != nil {
                     backgroundImage = settingsVC.backgroundImage
                     (self.view as! UIImageView).contentMode = .center
                     (self.view as! UIImageView).image = backgroundImage
                 }
             } else {
-                poemSettingsBrain?.redVal = settingsVC.redVal
-                poemSettingsBrain?.greenVal = settingsVC.greenVal
-                poemSettingsBrain?.blueVal = settingsVC.blueVal
+                poemSettingsBrain.redVal = settingsVC.redVal
+                poemSettingsBrain.greenVal = settingsVC.greenVal
+                poemSettingsBrain.blueVal = settingsVC.blueVal
                 (self.view as! UIImageView).image = nil
-                self.view.backgroundColor = UIColor(red: CGFloat(poemSettingsBrain!.redVal), green: CGFloat(poemSettingsBrain!.greenVal), blue: CGFloat(poemSettingsBrain!.blueVal), alpha: 1.0)
+                self.view.backgroundColor = UIColor(red: CGFloat(poemSettingsBrain.redVal), green: CGFloat(poemSettingsBrain.greenVal), blue: CGFloat(poemSettingsBrain.blueVal), alpha: 1.0)
             }
         }
     }

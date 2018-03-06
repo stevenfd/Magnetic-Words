@@ -17,16 +17,12 @@ struct Constants {
         static let blueValKey = "blueValKey"
         static let imageNameKey = "imageNameKey"
         static let backgroundTypeKey = "backgroundTypeKey"
+        static let fontSizeKey = "fontSizeKey"
     }
     
     struct ViewController {
         static let rowsGenerated: CGFloat = 5
         static let bottomAndSideBuffer: CGFloat = 16
-        
-        struct WordFontSize {
-            static let iPhone: CGFloat = 28
-            static let iPad: CGFloat = 32
-        }
         
         struct WordBuffer {
             static let iPhone: CGFloat = 10
@@ -45,13 +41,14 @@ struct Constants {
     }
     
     struct FontSizeSlider {
-        struct iPhone {
-            static let minSize: CGFloat = 24
-            static let maxSize: CGFloat = 36
+        static let minSize: CGFloat = 24
+        struct maxSize {
+            static let iPhone: CGFloat = 36
+            static let iPad: CGFloat = 50
         }
-        struct iPad {
-            static let minSize: CGFloat = 24
-            static let maxSize: CGFloat = 50
+        struct defaultSize {
+            static let iPhone: CGFloat = 28
+            static let iPad: CGFloat = 32
         }
     }
     
