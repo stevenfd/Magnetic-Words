@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     //Buffer between words and rows
     var wordBuffer: CGFloat = 14
     
-    var wordFontSize: CGFloat = 0
     var startingHeight: CGFloat = 0
     
     var backgroundImage: UIImage?
@@ -41,25 +40,19 @@ class ViewController: UIViewController {
         baseController.setUp()
         
         //Base the font size off of the device
-        if (UIDevice.current.userInterfaceIdiom == .phone) {
+        if UIDevice.current.userInterfaceIdiom == .phone {
             if poemSettingsBrain.fontSize == -1 {
-                wordFontSize = Constants.FontSizeSlider.defaultSize.iPhone
+                poemSettingsBrain.fontSize = Constants.FontSizeSlider.defaultSize.iPhone
             }
             wordBuffer = Constants.ViewController.WordBuffer.iPhone
         } else {
             if poemSettingsBrain.fontSize == -1 {
-                wordFontSize = Constants.FontSizeSlider.defaultSize.iPhone
+                poemSettingsBrain.fontSize = Constants.FontSizeSlider.defaultSize.iPad
             }
             wordBuffer = Constants.ViewController.WordBuffer.iPad
         }
         
-        if poemSettingsBrain.fontSize != -1 {
-            wordFontSize = CGFloat(poemSettingsBrain.fontSize)
-        }
-        
-        let sampleLabel = createBaseUILabel(text: "Sample Label");
-        let height = (sampleLabel.frame.height + wordBuffer) * Constants.ViewController.rowsGenerated + Constants.ViewController.bottomAndSideBuffer * 3
-        wordHolderHeightConstraint.constant = height
+        updateWordHolderHeight()
         
         //Add a border to the wordHolder
         wordHolder.layer.borderWidth = 1.0
@@ -109,6 +102,7 @@ class ViewController: UIViewController {
             settingsVC.greenVal = poemSettingsBrain.greenVal
             settingsVC.blueVal = poemSettingsBrain.blueVal
             settingsVC.backgroundIsImage = poemSettingsBrain.isBackgroundAnImage
+            settingsVC.fontSize = poemSettingsBrain.fontSize
         }
     }
     
@@ -140,6 +134,12 @@ class ViewController: UIViewController {
                 poemSettingsBrain.blueVal = settingsVC.blueVal
                 (self.view as! UIImageView).image = nil
                 self.view.backgroundColor = UIColor(red: CGFloat(poemSettingsBrain.redVal), green: CGFloat(poemSettingsBrain.greenVal), blue: CGFloat(poemSettingsBrain.blueVal), alpha: 1.0)
+            }
+            
+            if poemSettingsBrain.fontSize != settingsVC.fontSize {
+                poemSettingsBrain.fontSize = settingsVC.fontSize
+                updateWordHolderHeight()
+                newWords(self)
             }
         }
     }
@@ -282,7 +282,7 @@ class ViewController: UIViewController {
     private func createBaseUILabel(text: String) -> UILabel {
         let word = UILabel()
         word.backgroundColor = UIColor.white
-        word.font = UIFont(name: word.font.fontName, size: wordFontSize)
+        word.font = UIFont(name: word.font.fontName, size: CGFloat(poemSettingsBrain.fontSize))
         word.text = " " + text + " " //Spaces are to make the label bigger TODO: better way to do this?
         word.sizeToFit()
         
@@ -344,7 +344,7 @@ class ViewController: UIViewController {
     
     //Top bound is bottom + wordHolder
     private func getWordHolderTopBound(bottomBound: CGFloat) -> CGFloat {
-        return bottomBound - wordHolder.frame.height
+        return bottomBound - wordHolderHeightConstraint.constant
     }
     
     //Got help from this from: https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/handling_uikit_gestures/handling_rotation_gestures
@@ -432,6 +432,14 @@ class ViewController: UIViewController {
                 view.addSubview(word)
             }
         }
+    }
+    
+    private func updateWordHolderHeight() {
+        let sampleLabel = createBaseUILabel(text: "Sample Label");
+        let height = (sampleLabel.frame.height + wordBuffer) * Constants.ViewController.rowsGenerated + Constants.ViewController.bottomAndSideBuffer * 3
+        wordHolderHeightConstraint.constant = height
+        
+        startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
     }
     
 }

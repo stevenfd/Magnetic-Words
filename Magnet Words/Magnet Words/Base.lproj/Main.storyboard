@@ -335,8 +335,11 @@
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="K2O-ew-B40">
                                         <rect key="frame" x="14" y="418" width="347" height="31"/>
+                                        <connections>
+                                            <action selector="fontSizeChange:" destination="Efy-Eo-5wV" eventType="valueChanged" id="fSx-TR-5Tp"/>
+                                        </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font Size: 24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQo-u2-NUK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font Size: 24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQo-u2-NUK">
                                         <rect key="frame" x="16" y="470" width="343" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
@@ -357,9 +360,9 @@
                                     <constraint firstItem="EyC-Xp-B8t" firstAttribute="top" secondItem="UYV-b1-C58" secondAttribute="bottom" constant="16" id="9tU-Ar-d02"/>
                                     <constraint firstItem="UYV-b1-C58" firstAttribute="top" secondItem="OJt-Cp-7la" secondAttribute="bottom" constant="16" id="9tb-Bc-b0r"/>
                                     <constraint firstItem="OJt-Cp-7la" firstAttribute="top" secondItem="itS-a1-2fU" secondAttribute="bottom" constant="16" id="ARj-aO-6ny"/>
-                                    <constraint firstAttribute="bottom" secondItem="wQo-u2-NUK" secondAttribute="bottom" constant="501" id="BLJ-gm-kzj"/>
                                     <constraint firstItem="itS-a1-2fU" firstAttribute="leading" secondItem="SfQ-U7-5MT" secondAttribute="trailing" constant="20" id="Bt3-V6-Bm9"/>
                                     <constraint firstItem="D1W-7l-oK3" firstAttribute="top" secondItem="yDh-hW-zKJ" secondAttribute="bottom" constant="21" id="CZR-06-ngt"/>
+                                    <constraint firstItem="wQo-u2-NUK" firstAttribute="leading" secondItem="8gL-6P-YhQ" secondAttribute="leading" constant="16" id="D7a-OA-4xR"/>
                                     <constraint firstItem="9Fy-Cz-FoC" firstAttribute="leading" secondItem="H7F-HD-XcN" secondAttribute="trailing" constant="8" id="D9Z-iu-L6p"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uiy-Pw-fhM" secondAttribute="trailing" id="L1x-Wh-KtR"/>
                                     <constraint firstItem="9Fy-Cz-FoC" firstAttribute="top" secondItem="uiy-Pw-fhM" secondAttribute="bottom" constant="16" id="OzD-d7-jwR"/>
@@ -390,6 +393,7 @@
                                     <constraint firstItem="H7F-HD-XcN" firstAttribute="top" secondItem="uiy-Pw-fhM" secondAttribute="bottom" constant="12" id="s6Q-Ep-jlt"/>
                                     <constraint firstItem="NVk-qh-kPl" firstAttribute="top" secondItem="mkn-RP-Zw6" secondAttribute="bottom" constant="22" id="sN4-hV-1vx"/>
                                     <constraint firstItem="UYV-b1-C58" firstAttribute="leading" secondItem="D1W-7l-oK3" secondAttribute="trailing" constant="18" id="sUD-Xq-3e3"/>
+                                    <constraint firstAttribute="bottom" secondItem="wQo-u2-NUK" secondAttribute="bottom" constant="501" id="uyQ-HI-kax"/>
                                     <constraint firstItem="itS-a1-2fU" firstAttribute="top" secondItem="X1P-Vu-bhN" secondAttribute="bottom" constant="21" id="waZ-ok-i3A"/>
                                     <constraint firstItem="K2O-ew-B40" firstAttribute="leading" secondItem="8gL-6P-YhQ" secondAttribute="leading" constant="16" id="yhx-xW-ioP"/>
                                 </constraints>
@@ -404,7 +408,6 @@
                             <constraint firstItem="ynH-Qc-0Yo" firstAttribute="trailing" secondItem="K2O-ew-B40" secondAttribute="trailing" constant="16" id="ShW-GK-Blw"/>
                             <constraint firstItem="ynH-Qc-0Yo" firstAttribute="trailing" secondItem="OJt-Cp-7la" secondAttribute="trailing" constant="35" id="VtY-Gz-cRd"/>
                             <constraint firstItem="ynH-Qc-0Yo" firstAttribute="trailing" secondItem="wQo-u2-NUK" secondAttribute="trailing" constant="16" id="dRf-5B-0cr"/>
-                            <constraint firstItem="wQo-u2-NUK" firstAttribute="leading" secondItem="ynH-Qc-0Yo" secondAttribute="leading" constant="16" id="iiS-45-HRl"/>
                             <constraint firstItem="uiy-Pw-fhM" firstAttribute="top" secondItem="ynH-Qc-0Yo" secondAttribute="top" constant="8" id="kVj-Tb-hVI"/>
                             <constraint firstItem="ynH-Qc-0Yo" firstAttribute="trailing" secondItem="8gL-6P-YhQ" secondAttribute="trailing" id="mEu-Sq-7TZ"/>
                             <constraint firstItem="ynH-Qc-0Yo" firstAttribute="trailing" secondItem="EyC-Xp-B8t" secondAttribute="trailing" constant="63" id="vWr-9p-JIK"/>
@@ -429,6 +432,8 @@
                         <outlet property="blueText" destination="d16-IY-p4n" id="P69-CK-rgd"/>
                         <outlet property="colorDisplay" destination="EyC-Xp-B8t" id="eAU-us-OUx"/>
                         <outlet property="colorSwitch" destination="wjE-3J-XSb" id="CtY-MD-ghi"/>
+                        <outlet property="fontSizeLabel" destination="wQo-u2-NUK" id="rGw-kL-S42"/>
+                        <outlet property="fontSizeSlider" destination="K2O-ew-B40" id="RiB-8H-wMw"/>
                         <outlet property="greenSlider" destination="OJt-Cp-7la" id="Kui-Jv-Rrm"/>
                         <outlet property="greenText" destination="vZb-Gr-rnL" id="VAL-KL-a11"/>
                         <outlet property="imageSwitch" destination="H7F-HD-XcN" id="8F1-nX-sca"/>

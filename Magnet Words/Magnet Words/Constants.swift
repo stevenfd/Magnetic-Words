@@ -41,14 +41,14 @@ struct Constants {
     }
     
     struct FontSizeSlider {
-        static let minSize: CGFloat = 24
+        static let minSize: Int = 24
         struct maxSize {
-            static let iPhone: CGFloat = 36
-            static let iPad: CGFloat = 50
+            static let iPhone: Int = 36
+            static let iPad: Int = 50
         }
         struct defaultSize {
-            static let iPhone: CGFloat = 28
-            static let iPad: CGFloat = 32
+            static let iPhone: Int = 28
+            static let iPad: Int = 32
         }
     }
     

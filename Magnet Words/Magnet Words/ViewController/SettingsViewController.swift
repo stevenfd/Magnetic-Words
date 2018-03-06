@@ -17,6 +17,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     var backgroundIsImage: Bool = false
     
+    var fontSize: Int = 0
+    
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var redText: UITextField!
     @IBOutlet weak var greenSlider: UISlider!
@@ -24,9 +26,17 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var blueSlider: UISlider!
     @IBOutlet weak var blueText: UITextField!
     @IBOutlet weak var colorDisplay: UIView!
+    
     @IBOutlet weak var imageSwitch: UISwitch!
     @IBOutlet weak var colorSwitch: UISwitch!
+    
     @IBOutlet weak var selectImageButton: UIButton!
+    
+    var minSize = 0
+    var difference = 0
+    @IBOutlet weak var fontSizeLabel: UILabel!
+    @IBOutlet weak var fontSizeSlider: UISlider!
+    let fontSizeText = "Font Size: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +48,19 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         updateSliderColorValue()
         updateColorDisplayValue()
         
+        minSize = Constants.FontSizeSlider.minSize
+        difference = Constants.FontSizeSlider.maxSize.iPhone - minSize
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            difference = Constants.FontSizeSlider.maxSize.iPad - minSize
+        }
+        
+        //Update the slider to the right value
+        let sliderValue = Float(fontSize - minSize) / Float(difference)
+        fontSizeSlider.value = sliderValue
+        
         updateBackgroundUI()
+        updateFontSizeLabel()
     }
     
     //Method to allow the user to set a background image
@@ -57,6 +79,19 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         
         updateBackgroundUI()
+    }
+    
+    @IBAction func fontSizeChange(_ sender: Any) {
+        let slider = sender as! UISlider
+        
+        fontSize = Int(minSize) + Int(slider.value * Float(difference))
+        updateFontSizeLabel()
+    }
+    
+    private func updateFontSizeLabel() {
+        fontSizeLabel.text = fontSizeText + "\(fontSize)"
+        fontSizeLabel.font = UIFont(name: fontSizeLabel.font.fontName, size: CGFloat(fontSize))
+        fontSizeLabel.sizeToFit()
     }
     
     private func updateBackgroundUI() {
