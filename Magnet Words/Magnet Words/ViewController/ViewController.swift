@@ -84,6 +84,7 @@ class ViewController: UIViewController {
     
     //MARK - Segue Actions -
     
+    //Passes data to the different segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showThemeSegue" {
             let themeVC = segue.destination.childViewControllers[0] as! TableViewController
@@ -106,6 +107,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //Called by the SetTheme and SaveSettings screen when they are done
     @IBAction func unwindToMain(segue: UIStoryboardSegue) {
         if(segue.identifier == "SetTheme") {
             let themeVC = segue.source as! TableViewController
@@ -118,17 +120,20 @@ class ViewController: UIViewController {
             
             newWords(self)
         } else if (segue.identifier == "SaveSettings") {
+            //If we're coming from save settings we need to save everything passed back
             let settingsVC = segue.source as! SettingsViewController
             
             poemSettingsBrain?.isBackgroundAnImage = settingsVC.backgroundIsImage
             
             if poemSettingsBrain.isBackgroundAnImage {
+                //If it's an image set it as the background
                 if settingsVC.backgroundImage != nil {
                     backgroundImage = settingsVC.backgroundImage
                     (self.view as! UIImageView).contentMode = .center
                     (self.view as! UIImageView).image = backgroundImage
                 }
             } else {
+                //Otherwise set the color values as the background and save them
                 poemSettingsBrain.redVal = settingsVC.redVal
                 poemSettingsBrain.greenVal = settingsVC.greenVal
                 poemSettingsBrain.blueVal = settingsVC.blueVal
@@ -136,6 +141,7 @@ class ViewController: UIViewController {
                 self.view.backgroundColor = UIColor(red: CGFloat(poemSettingsBrain.redVal), green: CGFloat(poemSettingsBrain.greenVal), blue: CGFloat(poemSettingsBrain.blueVal), alpha: 1.0)
             }
             
+            //If they changed the font size update the words, and the word holder
             if poemSettingsBrain.fontSize != settingsVC.fontSize {
                 poemSettingsBrain.fontSize = settingsVC.fontSize
                 updateWordHolderHeight()
@@ -304,7 +310,23 @@ class ViewController: UIViewController {
     }
     
     
-    //MARK - Gesture Recognizer Methods -
+    //Method to update the size of the word holder programatically by the fontsize, also updates closely related variables
+    private func updateWordHolderHeight() {
+        let sampleLabel = createBaseUILabel(text: "Sample Label");
+        let height = (sampleLabel.frame.height + wordBuffer) * Constants.ViewController.rowsGenerated + Constants.ViewController.bottomAndSideBuffer * 3
+        wordHolderHeightConstraint.constant = height
+        
+        if wordHolderBottomConstraint.constant < -wordHolderHeightConstraint.constant {
+            wordHolderBottomConstraint.constant = -wordHolderHeightConstraint.constant
+        } else if wordHolderBottomConstraint.constant > 0 {
+            wordHolderBottomConstraint.constant = 0
+        }
+        
+        startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
+    }
+    
+    
+    //MARK - Gesture Recognizer Methods - (And their helpers)
     
     //Method to allow the user to drag the word holder up and down
     @objc private func dragWordHolder(panGesture:UIPanGestureRecognizer) {
@@ -328,6 +350,7 @@ class ViewController: UIViewController {
         moveWordHolderToHeight(height: height, animationDuration: 0)
     }
     
+    //Private function to move the word holder to a certain height
     private func moveWordHolderToHeight(height: CGFloat, animationDuration: Double) {
         let downArrowOriginal = downArrow.center.y
         UIView.animate(withDuration: animationDuration) {
@@ -399,7 +422,7 @@ class ViewController: UIViewController {
                     self.view.layoutIfNeeded()
                 })
             }
-            
+            //If its over in the delete area, animate it dissapearing
             if panGesture.state == UIGestureRecognizerState.ended {
                 UIView.animate(withDuration: 0.75, animations: {
                     word.alpha = 0.0
@@ -439,20 +462,6 @@ class ViewController: UIViewController {
                 view.addSubview(word)
             }
         }
-    }
-    
-    private func updateWordHolderHeight() {
-        let sampleLabel = createBaseUILabel(text: "Sample Label");
-        let height = (sampleLabel.frame.height + wordBuffer) * Constants.ViewController.rowsGenerated + Constants.ViewController.bottomAndSideBuffer * 3
-        wordHolderHeightConstraint.constant = height
-        
-        if wordHolderBottomConstraint.constant < -wordHolderHeightConstraint.constant {
-            wordHolderBottomConstraint.constant = -wordHolderHeightConstraint.constant
-        } else if wordHolderBottomConstraint.constant > 0 {
-            wordHolderBottomConstraint.constant = 0
-        }
-        
-        startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
     }
     
 }
