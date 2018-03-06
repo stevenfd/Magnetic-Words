@@ -279,7 +279,7 @@
                                             <constraint firstAttribute="width" constant="52" id="RIx-cX-3cg"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="actionColorChangeTextField:" destination="Efy-Eo-5wV" eventType="editingDidEnd" id="4Tz-sB-UlC"/>
@@ -297,7 +297,7 @@
                                             <constraint firstAttribute="width" constant="52" id="4wo-dX-z8R"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="actionColorChangeTextField:" destination="Efy-Eo-5wV" eventType="editingDidEnd" id="h2K-bp-ltm"/>
@@ -315,7 +315,7 @@
                                             <constraint firstAttribute="width" constant="52" id="qGJ-ER-7TI"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="actionColorChangeTextField:" destination="Efy-Eo-5wV" eventType="editingDidEnd" id="ki6-3P-42d"/>
