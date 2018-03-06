@@ -84,12 +84,22 @@ A highly customizable word magnets app for iOS, with different book themes.
 
 * Main Screen
 
-![Main Screen](Media/Screenshots/Checkpoint2/generalScreen.png)
+![Main Screen](Media/Screenshots/Checkpoint3/main.png)
 
-* Theme Selection Screen
+* Share Popover
 
-![Theme Selection Screen](Media/Screenshots/Checkpoint2/themeSelection.png)
+![Share Popover](Media/Screenshots/Checkpoint3/share.png)
 
-* Custom Word Popup
+* Messages Example
 
-![Custom Word Popup](Media/Screenshots/Checkpoint2/customWord.png)
+![Messages Example](Media/Screenshots/Checkpoint3/messages.png)
+
+* Settings Screen
+
+![Settings Screen](Media/Screenshots/Checkpoint3/settings.png)
+![Settings Changed](Media/Screenshots/Checkpoint3/settingsChanged.png)
+![New Main](Media/Screenshots/Checkpoint3/newmain.png)
+
+* Background Image
+
+![Background Image](Media/Screenshots/Checkpoint3/imageback.png)
