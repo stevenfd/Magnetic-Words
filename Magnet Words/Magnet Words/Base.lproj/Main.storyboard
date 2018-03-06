@@ -65,10 +65,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uue-XS-i2V">
-                                <rect key="frame" x="159" y="403" width="57" height="29"/>
+                                <rect key="frame" x="155.5" y="398" width="64" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="9Ae-HR-Pmt"/>
-                                    <constraint firstAttribute="height" constant="29" id="VVF-dm-tsb"/>
+                                    <constraint firstAttribute="width" constant="64" id="9Ae-HR-Pmt"/>
+                                    <constraint firstAttribute="height" constant="34" id="VVF-dm-tsb"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                 <state key="normal" title="⌄" image="down-arrow2"/>
