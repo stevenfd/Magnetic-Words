@@ -446,6 +446,12 @@ class ViewController: UIViewController {
         let height = (sampleLabel.frame.height + wordBuffer) * Constants.ViewController.rowsGenerated + Constants.ViewController.bottomAndSideBuffer * 3
         wordHolderHeightConstraint.constant = height
         
+        if wordHolderBottomConstraint.constant < -wordHolderHeightConstraint.constant {
+            wordHolderBottomConstraint.constant = -wordHolderHeightConstraint.constant
+        } else if wordHolderBottomConstraint.constant > 0 {
+            wordHolderBottomConstraint.constant = 0
+        }
+        
         startingHeight = wordHolderHeightConstraint.constant - Constants.ViewController.bottomAndSideBuffer
     }
     
